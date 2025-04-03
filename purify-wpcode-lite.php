@@ -52,8 +52,6 @@ class DDW_Purify_WPCode_Lite {
 		add_action( 'admin_bar_menu',             array( $this, 'add_admin_bar_nodes' ), 999 );
 		add_action( 'admin_enqueue_scripts',      array( $this, 'enqueue_admin_styles' ), 20 );  // for Admin
 		add_action( 'wp_enqueue_scripts',         array( $this, 'enqueue_admin_styles' ), 20 );  // for front-end
-		//add_action( 'enqueue_block_editor_assets', array( $this, 'adminbar_block_editor_fullscreen' ) );  // for Block Editor
-		//add_filter( 'debug_information',           array( $this, 'site_health_debug_info' ), 9 );
 	}
 	
 	/**
@@ -108,7 +106,7 @@ class DDW_Purify_WPCode_Lite {
 		) );
 		
 		$wp_admin_bar->add_node( array(
-			'id'     => 'pwl-addnew',	//'wpcode-admin-bar-info-add-new',
+			'id'     => 'pwl-addnew',
 			'title'  => esc_html__( '+ Add Snippet', 'purify-wpcode-lite' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=wpcode-snippet-manager&custom=1' ) ),
 			'parent' => 'pwl-group-addnew',
@@ -134,7 +132,7 @@ class DDW_Purify_WPCode_Lite {
 		) );
 		
 		$wp_admin_bar->add_node( array(
-			'id'     => 'pwl-settings',	//'wpcode-admin-bar-info-settings',
+			'id'     => 'pwl-settings',
 			'title'  => esc_html__( 'Settings', 'purify-wpcode-lite' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=wpcode-settings' ) ),
 			'parent' => 'pwl-group-settings',
@@ -148,7 +146,7 @@ class DDW_Purify_WPCode_Lite {
 		) );
 		
 		$wp_admin_bar->add_node( array(
-			'id'     => 'pwl-help',	//'wpcode-admin-bar-info-help',
+			'id'     => 'pwl-help',
 			'title'  => esc_html__( 'Help & Docs', 'purify-wpcode-lite' ),
 			'href'   => 'https://wpcode.com/docs/',
 			'parent' => 'pwl-group-settings',
