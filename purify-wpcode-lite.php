@@ -51,7 +51,7 @@ class DDW_Purify_WPCode_Lite {
 		add_action( 'wp_before_admin_bar_render', array( $this, 'remove_admin_bar_nodes' ) );
 		add_action( 'admin_bar_menu',             array( $this, 'add_admin_bar_nodes' ), 999 );
 		add_action( 'admin_enqueue_scripts',      array( $this, 'enqueue_admin_styles' ), 20 );  // for Admin
-		add_action( 'wp_enqueue_scripts',         array( $this, 'enqueue_admin_styles' ), 20 );  // for front-end
+		add_action( 'wp_enqueue_scripts',         array( $this, 'enqueue_front_styles' ), 20 );  // for front-end
 	}
 	
 	/**
@@ -73,16 +73,24 @@ class DDW_Purify_WPCode_Lite {
 	public function remove_admin_bar_nodes() {
 		global $wp_admin_bar;
 		$wp_admin_bar->remove_node( 'wpcode-upgrade' );
+		$wp_admin_bar->remove_node( 'wpcode-page-scripts' );
 		$wp_admin_bar->remove_node( 'wpcode-admin-bar-info-add-new' );
 		$wp_admin_bar->remove_node( 'wpcode-admin-bar-info-settings' );
 		$wp_admin_bar->remove_node( 'wpcode-admin-bar-info-help' );
-		$wp_admin_bar->remove_node( 'wpcode-page-scripts' );
 	}
 	
 	/**
 	 * Add and tweak Admin Bar nodes within the existing WPCode Lite main item.
 	 */
 	public function add_admin_bar_nodes( $wp_admin_bar ) {
+		
+		$remix_icon = '<span class="icon-svg xab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z"></path></svg></span> ';
+		
+		/** Main item */
+		$main_item = $wp_admin_bar->get_node( 'wpcode-admin-bar-info' );
+		$main_item->title = $remix_icon . $main_item->title;
+		$main_item->meta  = array( 'class' => 'wpcode-admin-bar-info menupop has-icon', );
+		$wp_admin_bar->add_node( $main_item );
 		
 		/** WP Core: New Content */
 		$wp_admin_bar->add_node( array(
@@ -110,6 +118,7 @@ class DDW_Purify_WPCode_Lite {
 			'title'  => esc_html__( '+ Add Snippet', 'purify-wpcode-lite' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=wpcode-snippet-manager&custom=1' ) ),
 			'parent' => 'pwl-group-addnew',
+			'meta'   => array( 'class' => 'wpcode-admin-bar-info-submenu wpcode-admin-bar-info-separator-top', ),
 		) );
 		
 		$wp_admin_bar->add_node( array(
@@ -155,15 +164,38 @@ class DDW_Purify_WPCode_Lite {
 	}
 	
 	/**
+	 * Prepare the Admin Bar inline styles. (helper function)
+	 */
+	private function get_adminbar_inline_styles() {
+		
+		$inline_css_adminbar = sprintf(
+			'
+				#wp-admin-bar-wpcode-upgrade,
+				#wp-admin-bar-wpcode-page-scripts {
+					display: none !important;
+				}
+				
+				/* for icons */
+				#wpadminbar .has-icon .icon-svg svg {
+					display: inline-block;
+					margin-bottom: 3px;
+					vertical-align: middle;
+					width: 16px;
+					height: 16px;
+				}
+			'
+		);
+		
+		return $inline_css_adminbar;
+	}
+	
+	/**
 	 * Add CSS styling for the Admin.
 	 */
 	public function enqueue_admin_styles() {
 		
-		/**
-		 * For WordPress Admin Area – create the styles
-		 *   Style handle: 'wp-admin' (WordPress Core)
-		 */
-		$inline_css = sprintf(
+		/** Inline styles for the Admin Area */
+		$inline_css_wpadmin = sprintf(
 			'
 				/** Remove stuff */
 				#wpcode-notice-consider-upgrading,
@@ -178,7 +210,6 @@ class DDW_Purify_WPCode_Lite {
 				.wpcode-admin-tabs li a[href*="view=errors"],
 				.wpcode-admin-tabs li a[href*="view=access"],
 				.wpcode-admin-page #footer-left,
-				#wp-admin-bar-wpcode-upgrade,
 				#wpbody-content .wpcode-button-ai-generate,
 				#wpcode_save_to_library,
 				.wpcode-metabox-form:has(div.wpcode-schedule-form-fields),
@@ -198,7 +229,7 @@ class DDW_Purify_WPCode_Lite {
 			
 				.wp-list-table.wpcode-snippets tbody > tr:hover,
 				.wp-list-table.wpcode-snippets.striped tbody > tr:hover{
-					background-color: #F0F3D8;
+					background-color: #f0f3d8;
 				}
 				
 				.wpcode-admin-page .wpcode-list-item.wpcode-custom-snippet {
@@ -213,8 +244,16 @@ class DDW_Purify_WPCode_Lite {
 					color: #ffc;
 				}
 				
+				.wpcode-code-types-list .wpcode-code-type {
+					border: 3px solid transparent;
+				}
+				
+				.wpcode-code-types-list .wpcode-code-type:hover {
+					border: 3px solid #ddd;
+				}
+				
 				.wpcode-code-type[data-code-type="php"] {
-					background-color: #E6E6FA;
+					background-color: #e6e6fa;
 				}
 				
 				.wpcode-code-type[data-code-type="js"] {
@@ -222,11 +261,15 @@ class DDW_Purify_WPCode_Lite {
 				}
 				
 				.wpcode-code-type[data-code-type="css"] {
-					background-color: #FFA07A;
+					background-color: #ffe4c4;
 				}
 				
 				.wpcode-code-type[data-code-type="html"] {
-					background-color: #98FB98;
+					background-color: #c1ffc1;
+				}
+				
+				.wpcode-code-type[data-code-type="text"] {
+					background-color: #f5f5f5;
 				}
 				
 				.wpcode-admin-page .wpcode-input-title input.wpcode-input-text {
@@ -235,12 +278,31 @@ class DDW_Purify_WPCode_Lite {
 					padding: 1rem 2rem;
 					height: 4rem;
 				}
+				
+				.wpcode-admin-page .wpcode-input-title input.wpcode-input-text::placeholder {
+					color: #666;
+					opacity: 0.5;
+				}
 			',
 			'100%'
 		);
 		
-		/** Add inline styles to the stylesheet */
-		wp_add_inline_style( 'wp-admin', $inline_css );
+		wp_add_inline_style( 'wp-admin', $inline_css_wpadmin );
+		
+		/** Additional inline styles for the Admin Bar */
+		if ( is_admin_bar_showing() ) {
+			wp_add_inline_style( 'admin-bar', $this->get_adminbar_inline_styles() );
+		}
+	}
+	
+	/**
+	 * Enqueue Admin Bar styles on the front-end.
+	 */
+	public function enqueue_front_styles() {
+		
+		if ( is_admin_bar_showing() ) {
+			wp_add_inline_style( 'admin-bar', $this->get_adminbar_inline_styles() );
+		}
 	}
 	
 }  // end of class
