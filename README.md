@@ -81,7 +81,7 @@ It may seem not much but the removing of "stuff" and these colorful enhancements
 
 ## Frequently Asked Questions 
 
-### **Why did I even bother and create such a plugin/snippet?** 
+### Why did you even bother and create such a plugin/snippet? 
 
 When working on a client site other options were not possible or allowed (reasons don't matter here) and I had to use WPCode Lite. While this plugin works just fine, all the promotional "things" and the aggressive upselling got on my nerves in a way that I had to do something about it. The result of that "something" you can see and install here. 😉
 
