@@ -118,6 +118,10 @@ _Most of all:_ Enjoy your code snippet work again. And now, have fun building gr
 
 ---
 
+Official _WPCode Lite_ product logo graphic/icon: © WPCode, LLC
+
+Icons used in Admin Bar items: © Remix Icon
+
 Icon used in promo graphics: © Tabler Icons by Paweł Kuna
 
 Readme & Plugin Copyright: © 2025, David Decker – DECKERWEB.de
