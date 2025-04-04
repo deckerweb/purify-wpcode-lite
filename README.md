@@ -88,7 +88,7 @@ When working on a client site other options were not possible or allowed (reason
 It's completely up to you to buy the Pro Version of WPCode. I love premium plugins and have nothing against them. What I do NOT love is taking over the WordPress Admin and aggressively pressuring on my nerves when I have serious work to do. Period.
 
 
-### Does this plugin add any new features? 
+### Does this plugin/snippet add any new features? 
 
 No. Beside a few tiny styling enhancements and tweaks to the Admin Bar / Toolbar items, nothing more gets added. This is intentional. If you don't want my "purify" plugin/snippet you can buy the WPCode Pro version or look for any other alternative.
 
