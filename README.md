@@ -15,7 +15,7 @@ Cleanup the (free) Lite version of WPCode to make it usable. Purify the admin sc
 
 ---
 
-[Support Project](#support-the-project) | [Installation](#installation) | [Updates](#updates) | [Description](#description) | [Changelog](#changelog) | [Plugin Scope / Disclaimer](#plugin-scope--disclaimer)
+[Support Project](#support-the-project) | [Installation](#installation) | [Updates](#updates) | [Description](#description) | [Frequently Asked Questions](#frequently-asked-questions) | [Changelog](#changelog) | [Plugin Scope / Disclaimer](#plugin-scope--disclaimer)
 
 ---
 
@@ -69,10 +69,33 @@ Just manually: Download the latest Snippet version (see above) and import it in 
 
 This plugin **removes** all the promotional / upsell stuff that WPCode Lite is stuffing within itself and the WordPress Admin Area. That way you are **not distracted** and can **actually just USE** the free lite version of this snippet manager plugin.
 
-**You ask why did I even bother and create such a plugin/snippet?** 
+Beyond that a few tiny little styling tweaks are made:
+* Increase the snippet title input field font size
+* Make snippet type selection more colorful to immediately grasp which snippet type would be considered
+
+Nothing more, nothing less.
+
+It may seem not much but the removing of "stuff" and these colorful enhancements will make the difference, believe me.
+
+---
+
+## Frequently Asked Questions 
+
+### **Why did I even bother and create such a plugin/snippet?** 
+
 When working on a client site other options were not possible or allowed (reasons don't matter here) and I had to use WPCode Lite. While this plugin works just fine, all the promotional "things" and the aggressive upselling got on my nerves in a way that I had to do something about it. The result of that "something" you can see and install here. 😉
 
 It's completely up to you to buy the Pro Version of WPCode. I love premium plugins and have nothing against them. What I do NOT love is taking over the WordPress Admin and aggressively pressuring on my nerves when I have serious work to do. Period.
+
+
+### Does this plugin add any new features? 
+
+No. Beside a few tiny styling enhancements and tweaks to the Admin Bar / Toolbar items, nothing more gets added. This is intentional. If you don't want my "purify" plugin/snippet you can buy the WPCode Pro version or look for any other alternative.
+
+
+### Is WPCode Lite any good? 
+
+Yes. It is a great plugin with some great and unique features. It works very well even in the free version.
 
 ---
 
