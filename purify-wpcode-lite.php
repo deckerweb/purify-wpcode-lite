@@ -55,6 +55,33 @@ class DDW_Purify_WPCode_Lite {
 	}
 	
 	/**
+	 * Load translations.
+	 *   Normally we wouldn't do that since WP 6.5, but since this plugin does not come from wordpress.org plugin repository, we have to care for loading ourselves. We first look in wp-content/languages subfolder, then in plugin subfolder. That way translations can also be used for code snippet version of this plugin.
+	 *
+	 * @uses get_user_locale() | load_textdomain() | load_plugin_textdomain()
+	 */
+	public function load_translations() {
+		
+		/** Set unique textdomain string */
+		$pwl_textdomain = 'purify-wpcode-lite';
+		
+		/** The 'plugin_locale' filter is also used by default in load_plugin_textdomain() */
+		$locale = apply_filters( 'plugin_locale', get_user_locale(), $pwl_textdomain );
+		
+		/**
+		 * WordPress languages directory
+		 *   Will default to: wp-content/languages/purify-wpcode-lite/purify-wpcode-lite-{locale}.mo
+		 */
+		$pwl_wp_lang_dir = trailingslashit( WP_LANG_DIR ) . trailingslashit( $pwl_textdomain ) . $pwl_textdomain . '-' . $locale . '.mo';
+		
+		/** Translations: First, look in WordPress' "languages" folder = custom & update-safe! */
+		load_textdomain( $pwl_textdomain, $pwl_wp_lang_dir );
+		
+		/** Secondly, look in plugin's "languages" subfolder = default */
+		load_plugin_textdomain( $pwl_textdomain, FALSE, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ) . 'languages' );
+	}
+	
+	/**
 	 * Check if WPCode Lite is activated or not.
 	 *
 	 * @return bool TRUE when WPCode Lite is active, FALSE otherwise.
@@ -100,6 +127,8 @@ class DDW_Purify_WPCode_Lite {
 	public function add_admin_bar_nodes( $wp_admin_bar ) {
 		
 		if ( ! $this->is_wpcode_lite() ) return $wp_admin_bar;
+		
+		$this->load_translations();
 		
 		$remix_icon = '<span class="icon-svg xab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z"></path></svg></span> ';
 		
