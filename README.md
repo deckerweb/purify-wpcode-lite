@@ -43,7 +43,7 @@ Enjoying the plugin? Feel free to treat me to a cup of coffee ☕🙂 through th
 1. Below, download the snippet version
 2. Import, then activate in _WPCode Lite_ plugin
 
-[**Download .json**](https://github.com/deckerweb/purify-wpcode-lite/releases/latest/download/ddw-purify-wpcode-lite.wpcode-lite.json) version for _WPCode Lite_ (free) just use the "Import" page.
+[**Download .json**](https://github.com/deckerweb/purify-wpcode-lite/releases/latest/download/ddw-purify-wpcode-lite.json) version for _WPCode Lite_ (free) just use the "Import" page.
 
 --> Please decide for one of both alternatives!
 
