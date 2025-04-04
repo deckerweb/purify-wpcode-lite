@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Purify WPCode Lite\n"
-"POT-Creation-Date: 2025-04-04 10:31+0200\n"
+"POT-Creation-Date: 2025-04-04 11:00+0200\n"
 "PO-Revision-Date: 2025-04-04 08:22+0200\n"
 "Last-Translator: David Decker DECKERWEB.de <David Decker DECKERWEB.de>\n"
 "Language-Team: David Decker DECKERWEB.de <David Decker DECKERWEB.de>\n"
@@ -20,48 +20,48 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: purify-wpcode-lite.php:117
+#: purify-wpcode-lite.php:145
 msgid "Code Snippet"
 msgstr ""
 
-#: purify-wpcode-lite.php:124
+#: purify-wpcode-lite.php:152
 msgid "Import Snippet"
 msgstr ""
 
-#: purify-wpcode-lite.php:139
+#: purify-wpcode-lite.php:167
 msgid "Add Snippet"
 msgstr ""
 
-#: purify-wpcode-lite.php:149
+#: purify-wpcode-lite.php:177
 msgid "Import Snippets"
 msgstr ""
 
-#: purify-wpcode-lite.php:159
+#: purify-wpcode-lite.php:187
 msgid "Export Snippets"
 msgstr ""
 
-#: purify-wpcode-lite.php:174
+#: purify-wpcode-lite.php:202
 msgid "Settings"
 msgstr ""
 
-#: purify-wpcode-lite.php:184
+#: purify-wpcode-lite.php:212
 msgid "Tools"
 msgstr ""
 
-#: purify-wpcode-lite.php:200
+#: purify-wpcode-lite.php:228
 msgid "Snippets Library"
 msgstr ""
 
-#: purify-wpcode-lite.php:210
+#: purify-wpcode-lite.php:238
 msgid "Help & Docs"
 msgstr ""
 
-#: purify-wpcode-lite.php:415
+#: purify-wpcode-lite.php:443
 msgctxt "Plugins page listing"
 msgid "Donate"
 msgstr ""
 
-#: purify-wpcode-lite.php:421
+#: purify-wpcode-lite.php:449
 msgctxt "Plugins page listing"
 msgid "Join our Newsletter"
 msgstr ""
