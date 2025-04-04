@@ -79,7 +79,7 @@ It's completely up to you to buy the Pro Version of WPCode. I love premium plugi
 ## Changelog 
 
 ### 🎉 v1.0.0 – 2025-04-04
-* Initial release – _Yeah!_
+* Initial public release – _Yeah!_
 
 ---
 
