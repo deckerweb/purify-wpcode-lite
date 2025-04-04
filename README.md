@@ -2,7 +2,7 @@
 
 Cleanup the (free) Lite version of WPCode to make it usable. Purify the admin screens to speed up your daily coding, ahem, work :-)
 
-![Purify WPCode Lite plugin banner](https://repository-images.githubusercontent.com/127668325/2a7279cf-2bd5-4743-9d2d-42b1555aa7f9)
+![Purify WPCode Lite plugin banner](https://repository-images.githubusercontent.com/959487832/e7a10382-fe21-4fc0-b859-ca786425db4c)
 
 
 * Contributors: [David Decker](https://github.com/deckerweb), [contributors](https://github.com/deckerweb/purify-wpcode-lite/graphs/contributors)
