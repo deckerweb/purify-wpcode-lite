@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 772 772" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <g transform="matrix(0.5,-6.12323e-17,6.12323e-17,-1,1.13687e-13,772)">
+        <rect x="0" y="0" width="1544" height="772" style="fill:url(#_Radial1);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-337.994,-123.475)">
+        <text x="525.89px" y="318px" style="font-family:'Futura-Bold', 'Futura', sans-serif;font-weight:700;font-size:125px;fill:rgb(255,148,20);">Pur<tspan x="752.515px 790.64px " y="318px 318px ">if</tspan>y</text>
+        <g transform="matrix(83.3333,0,0,83.3333,1006.79,468)">
+        </g>
+        <text x="444.619px" y="468px" style="font-family:'Futura-Bold', 'Futura', sans-serif;font-weight:700;font-size:83.333px;fill:rgb(255,148,20);">WPCode Lit<tspan x="952.869px " y="468px ">e</tspan></text>
+    </g>
+    <g transform="matrix(13.1581,-1.96258,1.96258,13.1581,212.402,435.677)">
+        <path d="M20,6L20,10C20,10.549 19.549,11 19,11L5,11C4.451,11 4,10.549 4,10L4,6C4,5.451 4.451,5 5,5L19,5C19.549,5 20,5.451 20,6M10,16L14,20M10,20L14,16" style="fill:none;fill-rule:nonzero;stroke:rgb(173,184,194);stroke-width:1.42px;"/>
+    </g>
+    <defs>
+        <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1574.88,-779.72,-779.72,-1574.88,0,772)"><stop offset="0" style="stop-color:rgb(48,35,174);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(200,109,215);stop-opacity:1"/></radialGradient>
+    </defs>
+</svg>
