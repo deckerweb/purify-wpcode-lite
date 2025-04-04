@@ -15,7 +15,7 @@ Cleanup the (free) Lite version of WPCode to make it usable. Purify the admin sc
 
 ---
 
-[Support Project](#support-the-project) | [Installation](#installation) | [Updates](#updates) | [Description](#description) | [Frequently Asked Questions](#frequently-asked-questions) | [Changelog](#changelog)
+[Support Project](#support-the-project) | [Installation](#installation) | [Updates](#updates) | [Description](#description) | [Changelog](#changelog) | [Plugin Scope / Disclaimer](#plugin-scope--disclaimer)
 
 ---
 
@@ -95,6 +95,6 @@ _Most of all:_ Enjoy your code snippet work again. And now, have fun building gr
 
 ---
 
-Icon used in promo graphics: © Remix Icon
+Icon used in promo graphics: © Tabler Icons by Paweł Kuna
 
 Readme & Plugin Copyright: © 2025, David Decker – DECKERWEB.de
