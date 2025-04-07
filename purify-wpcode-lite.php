@@ -14,7 +14,7 @@ Domain Path:       /languages/
 Requires WP:       6.7
 Requires PHP:      7.4
 GitHub Plugin URI: https://github.com/deckerweb/purify-wpcode-lite
-GitHub Branch:     master
+Primary Branch:    main
 Copyright:         © 2025, David Decker – DECKERWEB
 
 TESTED WITH:

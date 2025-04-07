@@ -9,7 +9,7 @@ Cleanup the (free) Lite version of WPCode to make it usable. Purify the admin sc
 * Tags: wpcode, cleanup, purify, wp-admin, admin, admin bar, code snippets, snippet manager
 * Requires at least: 6.7
 * Requires PHP: 7.4
-* Stable tag: [master](https://github.com/deckerweb/purify-wpcode-lite/releases/latest)
+* Stable tag: [main](https://github.com/deckerweb/purify-wpcode-lite/releases/latest)
 * Donate link: https://paypal.me/deckerweb
 * License: GPL v2 or later
 
