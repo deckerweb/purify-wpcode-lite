@@ -13,6 +13,8 @@ Text Domain:       purify-wpcode-lite
 Domain Path:       /languages/
 Requires WP:       6.7
 Requires PHP:      7.4
+Requires CP:       2.0.0
+Update URI:        https://github.com/deckerweb/purify-wpcode-lite/
 GitHub Plugin URI: https://github.com/deckerweb/purify-wpcode-lite
 Primary Branch:    main
 Copyright:         © 2025, David Decker – DECKERWEB
