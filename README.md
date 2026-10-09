@@ -1,131 +1,98 @@
-# Purify WPCode Lite 
+# Purify WPCode Lite
 
-Cleanup the (free) Lite version of WPCode to make it usable. Purify the admin screens to speed up your daily coding, ahem, work :-)
+![Purify WPCode Lite](assets/github-banner-en.png)
 
-![Purify WPCode Lite plugin banner](https://repository-images.githubusercontent.com/959487832/e7a10382-fe21-4fc0-b859-ca786425db4c)
+[Deutsch](README.de.md) · [Dokumentation](docs/FAQ.de.md) · [Documentation](docs/FAQ.en.md)
 
+Purify removes known promotional elements from WPCode Lite while keeping useful free features accessible.
 
-* Contributors: [David Decker](https://github.com/deckerweb), [contributors](https://github.com/deckerweb/purify-wpcode-lite/graphs/contributors)
-* Tags: wpcode, cleanup, purify, wp-admin, admin, admin bar, code snippets, snippet manager
-* Requires at least: 6.7
-* Requires PHP: 7.4
-* Stable tag: [main](https://github.com/deckerweb/purify-wpcode-lite/releases/latest)
-* Donate link: https://paypal.me/deckerweb
-* License: GPL v2 or later
+Version **1.1.0** · WordPress **6.7+** · PHP **7.4+** · GPL v2 or later
 
----
+[Installation](#installation) · [Requirements and limits](#requirements-and-limits) · [FAQ](#frequently-asked-questions) · [Changelog](#changelog)
 
-[Support Project](#support-the-project) | [Installation](#installation) | [Updates](#updates) | [Description](#description) | [Frequently Asked Questions](#frequently-asked-questions) | [Changelog](#changelog) | [Plugin Scope / Disclaimer](#plugin-scope--disclaimer)
+## At a glance
 
----
+- Cleanup for WPCode Lite 2.3.9 and 2.4.0.
+- Preserves free library access, error logging and shortcode attributes.
+- Useful snippet toolbar links and small editor styling improvements.
+- Shared deckerweb catalog, GitHub release updates and local changelog.
 
-## Support the Project 
+## Installation
 
-If you find this project helpful, consider showing your support by buying me a coffee! Your contribution helps me keep developing and improving this plugin.
+1. Install the ZIP under Plugins → Add New → Upload Plugin.
+2. Activate WPCode Lite and Purify. Do not run a duplicate Purify snippet.
+3. Check its status under Plugins; cleanup runs automatically with supported WPCode.
 
-Enjoying the plugin? Feel free to treat me to a cup of coffee ☕🙂 through the following options:
+## Targeted cleanup
 
-- [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W81BNTZE)
-- [Buy me a coffee](https://buymeacoffee.com/daveshine)
-- [PayPal donation](https://paypal.me/deckerweb)
-- [Join my **newsletter** for DECKERWEB WordPress Plugins](https://eepurl.com/gbAUUn)
+Named PHP hooks and page adapters suppress promotion before output where possible. Targeted CSS and DOM handling cover remaining promotions and dynamic upgrade dialogs. Error notices, free library, generators, import/export, logging and standard shortcodes remain. Shared catalog/updater data follows the documented ownership rules.
 
----
+## Requirements and limits
 
-## Installation 
+Minimum headers remain WordPress 6.7 and PHP 7.4. Embedded Library 0.8.1 requires PHP 8.0 and WordPress 6.4; its bootstrap checks requirements before loading and reports incompatibility. The updater is version 2.1.0. Admin routes, PHP snippet saving and dialogs were tested in isolation with WordPress 7.1.3/PHP 8.4.5. Network activation was tested; complete installation/update delivery, ClassicPress and minimum-version environments are not verified. Hidden premium menu destinations may remain directly accessible.
 
-#### **Quick Install – as Plugin**
-1. **Download ZIP:** [**purify-wpcode-lite.zip**](https://github.com/deckerweb/purify-wpcode-lite/releases/latest/download/purify-wpcode-lite.zip)
-2. Upload via WordPress Plugins > Add New > Upload Plugin
-3. Once activated, you’ll see the tweaked stuff within the Admin Area and in the Admin Bar.
+## Frequently asked questions
 
-#### **Alternative: Use as Code Snippet**
-1. Below, download the snippet version
-2. Import, then activate in _WPCode Lite_ plugin
+### Does it unlock Pro features?
 
-[**Download .json**](https://github.com/deckerweb/purify-wpcode-lite/releases/latest/download/ddw-purify-wpcode-lite.json) version for _WPCode Lite_ (free) just use the "Import" page.
+No. Unavailable Pro options keep honest labels and neutral dialogs.
 
---> Please decide for one of both alternatives!
+### Which WPCode versions are supported?
 
----
+The cleanup targets Lite 2.3.9 and 2.4.0. With another version, missing WPCode or active WPCode Pro, cleanup pauses and the Plugins page explains its status.
 
-## Updates 
+### Where do I configure it?
 
-#### For Plugin Version:
+Cleanup works automatically. The shared catalog has its own existing integration under Plugins; Purify adds no separate branding settings page.
 
-1) Alternative 1: Just download a new [ZIP file](https://github.com/deckerweb/purify-wpcode-lite/releases/latest/download/purify-wpcode-lite.zip) (see above), upload and override existing version. Done.
+### Does it disable error messages or tracking?
 
-2) Alternative 2: Use the (free) [**_Git Updater_ plugin**](https://git-updater.com/) and get updates automatically.
+No. Error, security and save messages remain. Your tracking selection is unchanged. The remote news/marketing inbox is disabled; that inbox can also contain product news.
 
-3) Alternative 3: Upcoming! – In future I will built-in our own deckerweb updater. This is currently being worked on for my plugins. Stay tuned!
+### Does it support Multisite?
 
-#### For Code Snippet Version:
+Cleanup uses the current site and user context and can be network activated. Shared Library settings belong to the network. No Multisite-specific snippet features are added; consult the documented testing limits.
 
-Just manually: Download the latest Snippet version (see above) and import it in _WPCode Lite_. – You can delete the old snippet; then just activate the new one. Done.
+### What happens to data when I remove it?
 
----
+Purify stores no snippet content or cleanup settings. Deactivation preserves data. Uninstall preserves other installed Library hosts and their shared data. Only the final host removes temporary Library caches/tasks; settings are retained unless their separate deletion option was enabled. Installed plugins and WPCode data remain.
 
-## Description 
+### What external connections are used?
 
-This plugin **removes** all the promotional / upsell stuff that WPCode Lite is stuffing within itself and the WordPress Admin Area. That way you are **not distracted** and can **actually just USE** the free lite version of this snippet manager plugin.
+The updater checks this public GitHub repository through WordPress update checks. The Library ships a local catalog; optional online refresh is off initially and, when enabled, contacts the approved GitHub catalog. User-triggered installation downloads approved packages. No Purify telemetry is added.
 
-Beyond that a few tiny little styling tweaks are made:
-* Increase the snippet title input field font size
-* Make snippet type selection more colorful to immediately grasp which snippet type would be considered
+[Full FAQ by topic](docs/FAQ.en.md)
 
-Nothing more, nothing less.
+## Changelog
 
-It may seem not much but the removing of "stuff" and these colorful enhancements will make the difference, believe me.
+### 1.1.0 · 2026-10-09
 
----
+- **New:** Shared plugin catalog, GitHub release updates and local changelog.
+- **Improved:** Cleanup supports WPCode Lite 2.4.0 and preserves useful free features.
+- **Fixed:** Unverified WPCode versions pause cleanup safely.
+- **Fixed:** German dialog translations load through the plugin textdomain.
+- **Misc:** Newsletter links do not include personal account details.
+- **Misc:** Updated local artwork.
+- **Fixed:** Activation stays in the WordPress admin when WPCode Lite is missing or inactive; cleanup remains paused.
 
-## Frequently Asked Questions 
+### 1.0.0 · 2025-04-04
 
-### Why did you even bother and create such a plugin/snippet? 
+- **New:** Initial public release.
 
-When working on a client site other options were not possible or allowed (reasons don't matter here) and I had to use WPCode Lite. While this plugin works just fine, all the promotional "things" and the aggressive upselling got on my nerves in a way that I had to do something about it. The result of that "something" you can see and install here. 😉
+## Author and project
 
-It's completely up to you to buy the Pro Version of WPCode. I love premium plugins and have nothing against them. What I do NOT love is taking over the WordPress Admin and aggressively pressuring on my nerves when I have serious work to do. Period.
+David Decker – DECKERWEB. Purify focuses on a usable free interface. Distribution is through GitHub; this plugin is not distributed on WordPress.org.
 
+## Issues and security
 
-### Does this plugin/snippet add any new features? 
+[Issues](https://github.com/deckerweb/purify-wpcode-lite/issues) · [Security](SECURITY.md)
 
-No. Beside a few tiny styling enhancements and tweaks to the Admin Bar / Toolbar items, nothing more gets added. This is intentional. If you don't want my "purify" plugin/snippet you can buy the WPCode Pro version or look for any other alternative.
+Do not post security details publicly. SECURITY.md describes the confidential reporting route and its current availability.
 
+## Support
 
-### Is WPCode Lite any good? 
+[Ko-fi](https://ko-fi.com/deckerweb) · [Buy Me a Coffee](https://buymeacoffee.com/daveshine) · [PayPal](https://paypal.me/deckerweb) · [Newsletter](https://eepurl.com/gbAUUn)
 
-Yes. It is a great plugin with some great and unique features. It works very well even in the free version.
+Copyright © 2025–2026 David Decker – DECKERWEB. GPL-2.0-or-later.
 
----
-
-## Changelog 
-
-### ⚡ v1.0.1 - 2025-04-??
-* New: Confirmed full compatibility with ClassicPress 2.x
-
-
-### 🎉 v1.0.0 – 2025-04-04
-* Initial public release – _Yeah!_
-
----
-
-## Plugin Scope / Disclaimer
-
-This plugin comes as is.
-
-_Disclaimer 1:_ So far I will support the plugin for breaking errors to keep it working. Otherwise support will be very limited. Also, it will NEVER be released to WordPress.org Plugin Repository for a lot of reasons (ah, thanks, Matt!).
-
-_Disclaimer 2:_ All of the above might change. I do all this stuff only in my spare time.
-
-_Most of all:_ Enjoy your code snippet work again. And now, have fun building great sites!!! 😉
-
----
-
-Official _WPCode Lite_ product logo graphic/icon: © WPCode, LLC
-
-Icons used in Admin Bar items: [© Remix Icon](https://remixicon.com/)
-
-Icon used in promo graphics: [© Tabler Icons by Paweł Kuna](https://tabler.io/icons)
-
-Readme & Plugin Copyright: © 2025, David Decker – DECKERWEB.de
+Origins and licenses: [third parties](THIRD-PARTY.md).

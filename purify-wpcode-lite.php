@@ -1,122 +1,133 @@
 <?php # -*- coding: utf-8 -*-
-/*
-Plugin Name:       Purify WPCode Lite
-Plugin URI:        https://github.com/deckerweb/purify-wpcode-lite
-Description:       Cleanup the (free) Lite version of WPCode to make it usable. Purify the admin screens to speed up your daily coding, ahem, work :-)
-Project:           Code Snippet: DDW Purify WPCode Lite
-Version:           1.0.0
-Author:            David Decker – DECKERWEB
-Author URI:        https://deckerweb.de/
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain:       purify-wpcode-lite
-Domain Path:       /languages/
-Requires WP:       6.7
-Requires PHP:      7.4
-Requires CP:       2.0.0
-Update URI:        https://github.com/deckerweb/purify-wpcode-lite/
-GitHub Plugin URI: https://github.com/deckerweb/purify-wpcode-lite
-Primary Branch:    main
-Copyright:         © 2025, David Decker – DECKERWEB
-
-TESTED WITH:
-Product			Versions
---------------------------------------------------------------------------------------------------------------
-PHP 			8.0, 8.3
-WordPress		6.7.2 ... 6.8 Beta
-WPCode Lite		2.2.7
---------------------------------------------------------------------------------------------------------------
-
-VERSION HISTORY:
-Date        Version     Description
---------------------------------------------------------------------------------------------------------------
-2025-04-04	1.0.0       Initial public release
-2025-04-02	0.0.0	    Development start
---------------------------------------------------------------------------------------------------------------
-*/
+/**
+ * Plugin Name: Purify WPCode Lite
+ * Plugin URI: https://github.com/deckerweb/purify-wpcode-lite
+ * Description: Remove promotional elements from WPCode Lite while preserving useful free features.
+ * Version: 1.1.0
+ * Requires at least: 6.7
+ * Requires PHP: 7.4
+ * Author: David Decker – DECKERWEB
+ * Author URI: https://github.com/deckerweb
+ * License: GPL v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: purify-wpcode-lite
+ * Domain Path: /languages/
+ * Update URI: https://github.com/deckerweb/purify-wpcode-lite
+ * GitHub Plugin URI: https://github.com/deckerweb/purify-wpcode-lite
+ *
+ * Copyright © 2025–2026 David Decker – DECKERWEB.
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 
 /** Prevent direct access */
 if ( ! defined( 'ABSPATH' ) ) exit;  // Exit if accessed directly.
 
 if ( ! class_exists( 'DDW_Purify_WPCode_Lite' ) ) :
 
+/**
+ * Clean audited WPCode Lite admin interfaces and preserve snippet operations.
+ */
 class DDW_Purify_WPCode_Lite {
 
 	/** Class constants & variables */
-	private const VERSION = '1.0.0';
+	private const VERSION = '1.1.0';
 
 	/**
 	 * Constructor
+	 * @return void No return value.
 	 */
 	public function __construct() {
-		add_action( 'admin_head',                 array( $this, 'remove_submenus' ), 1 );
-		add_action( 'wp_before_admin_bar_render', array( $this, 'remove_admin_bar_nodes' ) );
-		add_action( 'admin_bar_menu',             array( $this, 'add_admin_bar_nodes' ), 1000 );  // WPCode Lite has 999, we need 1 higher
+		add_action( 'init', array( $this, 'load_translations' ), 0 );
+		add_action( 'admin_menu',                 array( $this, 'remove_submenus' ), 999 );
+		add_action( 'plugins_loaded', array( $this, 'setup_cleanup' ), 100 );
+		add_action( 'admin_init', array( $this, 'setup_cleanup' ), -100 );
+		add_action( 'admin_bar_menu', array( $this, 'remove_admin_bar_nodes' ), 1300 );
+		add_action( 'admin_bar_menu',             array( $this, 'add_admin_bar_nodes' ), 1301 );  // After WPCode's 999 and 1200 callbacks
 		add_action( 'admin_enqueue_scripts',      array( $this, 'enqueue_admin_styles' ), 20 );  // for Admin
 		add_action( 'wp_enqueue_scripts',         array( $this, 'enqueue_front_styles' ), 20 );  // for front-end
 	}
 	
+    /**
+     * Load the named cleanup rules after WPCode initializes.
+     * @return void Registers audited cleanup.
+     */
+    public function setup_cleanup() {
+        if ( ! $this->is_supported_wpcode_lite() ) return;
+        require_once __DIR__ . '/includes/cleanup.php';
+        DDW_PWL_Cleanup::apply();
+    }
+
 	/**
-	 * Load translations.
-	 *   Normally we wouldn't do that since WP 6.5, but since this plugin does not come from wordpress.org plugin repository, we have to care for loading ourselves. We first look in wp-content/languages subfolder, then in plugin subfolder. That way translations can also be used for code snippet version of this plugin.
-	 *
-	 * @uses get_user_locale() | load_textdomain() | load_plugin_textdomain()
-	 */
+     * Load the current request's host translations, with custom catalog precedence.
+     *
+     * @return void Loads an available MO catalog and registers the bundled path.
+     */
 	public function load_translations() {
-		
-		/** Set unique textdomain string */
-		$pwl_textdomain = 'purify-wpcode-lite';
-		
-		/** The 'plugin_locale' filter is also used by default in load_plugin_textdomain() */
-		$locale = apply_filters( 'plugin_locale', get_user_locale(), $pwl_textdomain );
-		
-		/**
-		 * WordPress languages directory
-		 *   Will default to: wp-content/languages/purify-wpcode-lite/purify-wpcode-lite-{locale}.mo
-		 */
-		$pwl_wp_lang_dir = trailingslashit( WP_LANG_DIR ) . trailingslashit( $pwl_textdomain ) . $pwl_textdomain . '-' . $locale . '.mo';
-		
-		/** Translations: First, look in WordPress' "languages" folder = custom & update-safe! */
-		load_textdomain( $pwl_textdomain, $pwl_wp_lang_dir );
-		
-		/** Secondly, look in plugin's "languages" subfolder = default */
-		load_plugin_textdomain( $pwl_textdomain, FALSE, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ) . 'languages' );
-	}
-	
+        $domain = 'purify-wpcode-lite';
+        $locale = apply_filters( 'plugin_locale', determine_locale(), $domain );
+        $custom = trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo';
+        $bundled = __DIR__ . '/languages/' . $domain . '-' . $locale . '.mo';
+        // A custom user-maintained catalog has precedence over the bundled one.
+        if ( is_readable( $custom ) ) {
+            load_textdomain( $domain, $custom, $locale );
+        } elseif ( is_readable( $bundled ) ) {
+            load_textdomain( $domain, $bundled, $locale );
+        }
+        load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+    }
+
 	/**
 	 * Check if WPCode Lite is activated or not.
 	 *
 	 * @return bool TRUE when WPCode Lite is active, FALSE otherwise.
 	 */
 	private function is_wpcode_lite() {
-		if ( class_exists( 'WPCode_Admin_Bar_Info_Lite' ) ) return TRUE;
+		return class_exists( 'WPCode_Admin_Bar_Info_Lite' ) && ! class_exists( 'WPCode_Premium' );
 	}
 	
+    /**
+     * Allow structural cleanup only for source-audited Lite releases.
+     *
+     * @return bool Whether the loaded Lite version is supported.
+     */
+    private function is_supported_wpcode_lite() {
+        return $this->is_wpcode_lite() && defined( 'WPCODE_VERSION' ) && in_array( WPCODE_VERSION, array( '2.3.9', '2.4.0' ), true );
+    }
+
 	/**
 	 * Remove promotional submenus which have no value at all.
+	 * @return void No return value.
 	 */
 	public function remove_submenus() {
-		if ( ! $this->is_wpcode_lite() ) return;
+		if ( ! $this->is_supported_wpcode_lite() ) return;
 		
 		remove_submenu_page( 'wpcode', 'wpcode-duplicator' );
 		remove_submenu_page( 'wpcode', 'wpcode-search-replace' );
 		remove_submenu_page( 'wpcode', 'wpcode-file-editor' );
 		remove_submenu_page( 'wpcode', 'wpcode-pixel' );
-		remove_submenu_page( 'wpcode', 'https://wpcode.com/lite/?utm_source=liteplugin&utm_medium=dashboard&utm_campaign=admin-side-menu' );
+		global $submenu;
+		foreach ( isset( $submenu['wpcode'] ) ? $submenu['wpcode'] : array() as $item ) {
+			$url = isset( $item[2] ) ? wp_parse_url( html_entity_decode( $item[2] ) ) : false;
+			if ( is_array( $url ) && isset( $url['host'], $url['path'] ) && 'wpcode.com' === strtolower( $url['host'] ) && '/lite/' === trailingslashit( $url['path'] ) ) {
+				remove_submenu_page( 'wpcode', $item[2] );
+			}
+		}
 	}
 	
 	/**
 	 * Remove promotional Admin Bar nodes which have no value at all.
 	 *   ALSO: Remove some nodes here, only to re-add them later on but with
 	 *         tweaked properties.
+	 * @return void No return value.
 	 */
 	public function remove_admin_bar_nodes() {
 		
-		if ( ! $this->is_wpcode_lite() ) return;
+		if ( ! $this->is_supported_wpcode_lite() ) return;
 		
 		global $wp_admin_bar;
 		
 		$wp_admin_bar->remove_node( 'wpcode-upgrade' );
+		$wp_admin_bar->remove_node( 'wpcode-page-scripts-upgrade' );
 		$wp_admin_bar->remove_node( 'wpcode-page-scripts' );
 		$wp_admin_bar->remove_node( 'wpcode-admin-bar-info-add-new' );
 		$wp_admin_bar->remove_node( 'wpcode-admin-bar-info-settings' );
@@ -125,12 +136,13 @@ class DDW_Purify_WPCode_Lite {
 	
 	/**
 	 * Add and tweak Admin Bar nodes within the existing WPCode Lite main item.
+	 *
+	 * @param WP_Admin_Bar $wp_admin_bar Active toolbar instance.
+	 * @return void Updates authorized toolbar nodes only.
 	 */
 	public function add_admin_bar_nodes( $wp_admin_bar ) {
 		
-		if ( ! $this->is_wpcode_lite() ) return $wp_admin_bar;
-		
-		$this->load_translations();
+		if ( ! $this->is_supported_wpcode_lite() || ! current_user_can( 'wpcode_edit_snippets' ) || ! $wp_admin_bar->get_node( 'wpcode-admin-bar-info' ) ) return;
 		
 		$remix_icon = '<span class="icon-svg xab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z"></path></svg></span> ';
 		
@@ -138,7 +150,8 @@ class DDW_Purify_WPCode_Lite {
 		$main_item = $wp_admin_bar->get_node( 'wpcode-admin-bar-info' );
 		if ( ! is_null( $main_item ) ) {
 			$main_item->title = $remix_icon . $main_item->title;
-			$main_item->meta  = array( 'class' => 'wpcode-admin-bar-info menupop has-icon', );
+			$main_item->meta = (array) $main_item->meta;
+			$main_item->meta['class'] = trim( ( isset( $main_item->meta['class'] ) ? $main_item->meta['class'] : '' ) . ' pwl-toolbar has-icon' );
 			$wp_admin_bar->add_node( $main_item );
 		}
 		
@@ -173,7 +186,7 @@ class DDW_Purify_WPCode_Lite {
 			'meta'   => array( 'class' => 'wpcode-admin-bar-info-submenu has-icon has-separator', ),
 		) );
 		
-		$icon_import = '<span class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg></svg></span> ';
+		$icon_import = '<span class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg></span> ';
 		
 		$wp_admin_bar->add_node( array(
 			'id'     => 'pwl-addnew-import-snippets',
@@ -247,6 +260,7 @@ class DDW_Purify_WPCode_Lite {
 	
 	/**
 	 * Prepare the Admin Bar inline styles. (helper function)
+	 * @return string Generated toolbar stylesheet.
 	 */
 	private function get_adminbar_inline_styles() {
 		
@@ -258,7 +272,7 @@ class DDW_Purify_WPCode_Lite {
 				}
 				
 				/* for icons */
-				#wpadminbar .has-icon .icon-svg svg {
+				#wpadminbar #wp-admin-bar-wpcode-admin-bar-info .icon-svg svg {
 					display: inline-block;
 					margin-bottom: 3px;
 					vertical-align: middle;
@@ -267,7 +281,7 @@ class DDW_Purify_WPCode_Lite {
 				}
 				
 				/* for separator */
-				#wpadminbar .has-separator {
+				#wpadminbar #wp-admin-bar-wpcode-admin-bar-info .has-separator {
 					border-top: 1px dashed rgba(255, 255, 255, 0.33);
 					padding-top: 5px;
 				}
@@ -279,47 +293,47 @@ class DDW_Purify_WPCode_Lite {
 	
 	/**
 	 * Add CSS styling for the Admin.
+	 * @return void No return value.
 	 */
 	public function enqueue_admin_styles() {
 		
-		if ( ! $this->is_wpcode_lite() ) return;
-		
+		if ( ! $this->is_supported_wpcode_lite() ) return;
+		if ( is_admin_bar_showing() ) {
+			wp_add_inline_style( 'admin-bar', $this->get_adminbar_inline_styles() );
+		}
+		$screen = get_current_screen();
+		if ( ! $screen || false === strpos( $screen->id, 'wpcode' ) ) return;
+		wp_enqueue_script( 'pwl-cleanup', plugins_url( 'assets/js/cleanup.js', __FILE__ ), array(), self::VERSION, true );
+		wp_localize_script( 'pwl-cleanup', 'pwlCleanup', array(
+			'unavailable' => __( 'This feature is unavailable in WPCode Lite.', 'purify-wpcode-lite' ),
+			'libraryEmpty' => __( 'No additional free snippets are currently available for the installed plugins.', 'purify-wpcode-lite' ),
+			'close' => __( 'Close', 'purify-wpcode-lite' ),
+		) );
 		/** Inline styles for the Admin Area */
 		$inline_css_wpadmin = sprintf(
 			'
-				/** Remove stuff */
-				#wpcode-notice-consider-upgrading,
-				.wp-submenu li.wpcode-sidebar-upgrade-pro,
-				.wpcode-toggle-testing-mode-wrap,
-				.wpcode-admin-tabs .wpcode_pro_type_lite,
-				.wpcode-items-list-category .wpcode-library-item-ai,
-				.wpcode-library-tab-button[data-tab="plugin-snippets"],
-				.wpcode-library-tab-button[data-tab="my-library"],
-				.wpcode-admin-tabs li a[href*="my_library"],
-				.wpcode-admin-tabs li a[href*="my_favorites"],
-				.wpcode-admin-tabs li a[href*="view=errors"],
-				.wpcode-admin-tabs li a[href*="view=access"],
-				.wpcode-admin-page #footer-left,
-				#wpbody-content .wpcode-button-ai-generate,
-				#wpcode_save_to_library,
-				.wpcode-metabox-form:has(div.wpcode-schedule-form-fields),
-				.wpcode-metabox:has(div div.wpcode-device-type-picker),
-				.wpcode-metabox:has(div div.wpcode-revisions-list-area),
-				.wpcode-code-type[data-code-type="blocks"],
-				.wpcode-code-type[data-code-type="scss"],
-				.wpcode-smart-tags.wpcode-smart-tags-unavailable,
-				.plugins-php tr[data-slug="insert-headers-and-footers"] .wpcodepro,
-				.wpcode-items-list-category .wpcode-list-item-disabled,
-				.wpcode-metabox-form-row:has(div label span.wpcode-pro-pill),
-				.wpcode-content h2:has(span.wpcode-pro-pill),
-				#wpcode-notice-global-emailsmtp,
-				.wpcode-lite-version.wpcode-settings .wpcode-content > p,
-				.wpcode-lite-version.wpcode-settings .wpcode-content > hr,
-				.wpcode-lite-version.wpcode-settings .wpcode-content div[style="position: relative"],
-				#wpcode-notice-ihaf-snippets {
-					display: none !important;
-				}
-				
+				/* Known promotion fallback selectors, scoped to audited WPCode pages. */
+                body.wpcode-admin-page #wpcode-notice-global-wpconsent_pixel,
+                body.wpcode-admin-page .wpcode-upsell-box,
+                body.wpcode-admin-page .wpcode-library-suggest-plugins,
+                body.wpcode-admin-page .wpcode-toggle-testing-mode-wrap,
+                body.wpcode-admin-page #wpcode_save_to_library,
+                body.wpcode-admin-page .wpcode-library-item-ai-not-available,
+                body.wpcode-admin-page .wpcode-button-ai-not-available,
+                body.wpcode-admin-page .wpcode-library-tab-button[data-tab="my-library"],
+                body.wpcode-admin-page .wpcode-admin-tabs a[href*="my_library"],
+                body.wpcode-admin-page .wpcode-admin-tabs a[href*="my_favorites"],
+                body.wpcode-admin-page .wpcode-admin-tabs a[href*="view=access"],
+                body.wpcode-admin-page .wpcode-metabox-form:has(> .wpcode-schedule-form-fields),
+                body.wpcode-admin-page #wpcode_snippet_as_file_option,
+                body.wpcode-admin-page #wpcode_compress_output_option {
+                    display: none !important;
+                }
+                body.wpcode-admin-page .wpcode-code-type[data-code-type="blocks"],
+                body.wpcode-admin-page .wpcode-code-type[data-code-type="scss"] {
+                    display: none !important;
+                }
+
 				/** Colors & Tweaks */
 				.wpcode-admin-page .wp-list-table.wpcode-snippets .column-name a {
 					color: #0073aa
@@ -400,16 +414,19 @@ class DDW_Purify_WPCode_Lite {
 	
 	/**
 	 * Enqueue Admin Bar styles on the front-end.
+	 * @return void No return value.
 	 */
 	public function enqueue_front_styles() {
 		
-		if ( $this->is_wpcode_lite() && is_admin_bar_showing() ) {
+		if ( $this->is_supported_wpcode_lite() && is_admin_bar_showing() ) {
 			wp_add_inline_style( 'admin-bar', $this->get_adminbar_inline_styles() );
 		}
 	}
 	
 }  // end of class
 
+require_once __DIR__ . '/includes/integration.php';
+DDW_PWL_Integration::register( __FILE__ );
 new DDW_Purify_WPCode_Lite();
 	
 endif;
@@ -429,18 +446,12 @@ function ddw_pwl_pluginrow_meta( $ddwp_meta, $ddwp_file ) {
 
 	if ( ! current_user_can( 'install_plugins' ) ) return $ddwp_meta;
 	
-	/** Get current user */
-	$user = wp_get_current_user();
-	
-	/** Build Newsletter URL */
-	$url_nl = sprintf(
-		'https://deckerweb.us2.list-manage.com/subscribe?u=e09bef034abf80704e5ff9809&amp;id=380976af88&amp;MERGE0=%1$s&amp;MERGE1=%2$s',
-		esc_attr( $user->user_email ),
-		esc_attr( $user->user_firstname )
-	);
-	
+	$url_nl = 'https://eepurl.com/gbAUUn';
+
 	/** List additional links only for this plugin */
 	if ( $ddwp_file === trailingslashit( dirname( plugin_basename( __FILE__ ) ) ) . basename( __FILE__ ) ) {
+		$ddwp_meta[] = '<button type="button" class="button-link" data-pwl-history>' . esc_html__( 'Changelog', 'purify-wpcode-lite' ) . '</button>';
+		$ddwp_meta[] = DDW_PWL_Integration::status_label();
 		$ddwp_meta[] = sprintf(
 			'<a class="button button-inline" href="https://ko-fi.com/deckerweb" target="_blank" rel="nofollow noopener noreferrer" title="%1$s">❤ <b>%1$s</b></a>',
 			esc_html_x( 'Donate', 'Plugins page listing', 'purify-wpcode-lite' )
@@ -448,12 +459,18 @@ function ddw_pwl_pluginrow_meta( $ddwp_meta, $ddwp_file ) {
 		
 		$ddwp_meta[] = sprintf(
 			'<a class="button-primary" href="%1$s" target="_blank" rel="nofollow noopener noreferrer" title="%2$s">⚡ <b>%2$s</b></a>',
-			$url_nl,
-			esc_html_x( 'Join our Newsletter', 'Plugins page listing', 'purify-wpcode-lite' )
+			esc_url( $url_nl ),
+			esc_html_x( 'Join the newsletter', 'Plugins page listing', 'purify-wpcode-lite' )
 		);
 	}  // end if
 	
-	return apply_filters( 'ddw/admin_extras/pluginrow_meta', $ddwp_meta );
+	/**
+     * Filter plugin-row metadata for deckerweb admin integrations.
+     *
+     * @since 1.0.0
+     * @param array $ddwp_meta Escaped metadata links to return.
+     */
+    return apply_filters( 'ddw/admin_extras/pluginrow_meta', $ddwp_meta );
 
 }  // end function
 
