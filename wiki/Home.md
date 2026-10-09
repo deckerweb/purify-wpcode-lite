@@ -2,7 +2,7 @@
 
 ![Purify WPCode Lite](https://raw.githubusercontent.com/deckerweb/purify-wpcode-lite/main/assets/github-banner-en.png)
 
-[Deutsch](README.de.md) · [Dokumentation](docs/FAQ.de.md) · [Documentation](docs/FAQ.en.md)
+[Deutsch](Home-de) · [Dokumentation](Fragen-nach-Themen) · [Documentation](FAQ-by-topic)
 
 Purify removes known promotional elements from WPCode Lite while keeping useful free features accessible.
 
@@ -61,7 +61,7 @@ Purify stores no snippet content or cleanup settings. Deactivation preserves dat
 
 The updater checks this public GitHub repository through WordPress update checks. The Library ships a local catalog; optional online refresh is off initially and, when enabled, contacts the approved GitHub catalog. User-triggered installation downloads approved packages. No Purify telemetry is added.
 
-[Full FAQ by topic](docs/FAQ.en.md)
+[Full FAQ by topic](FAQ-by-topic)
 
 ## Changelog
 
