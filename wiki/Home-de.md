@@ -85,7 +85,7 @@ David Decker – DECKERWEB. Purify konzentriert sich auf eine nutzbare Free-Ober
 
 ## Issues and security
 
-[Issues](https://github.com/deckerweb/purify-wpcode-lite/issues) · [Security](SECURITY.md)
+[Issues](https://github.com/deckerweb/purify-wpcode-lite/issues) · [Security](https://github.com/deckerweb/purify-wpcode-lite/blob/main/SECURITY.md)
 
 Sicherheitsdetails nicht öffentlich posten. Der vertrauliche Meldeweg und sein aktueller Status stehen in SECURITY.md.
 
@@ -95,4 +95,4 @@ Sicherheitsdetails nicht öffentlich posten. Der vertrauliche Meldeweg und sein 
 
 Copyright © 2025–2026 David Decker – DECKERWEB. GPL-2.0-or-later.
 
-Herkunft und Lizenzen: [Drittanbieter](THIRD-PARTY.md).
+Herkunft und Lizenzen: [Drittanbieter](https://github.com/deckerweb/purify-wpcode-lite/blob/main/THIRD-PARTY.md).
