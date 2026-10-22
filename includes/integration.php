@@ -18,6 +18,7 @@ final class DDW_PWL_Integration {
         deckerweb_library_register_v2( $main_file, array(), __DIR__ . '/deckerweb-plugin-library' );
         add_action( 'init', array( __CLASS__, 'updater' ), 5 );
         add_action( 'activate_plugin', array( __CLASS__, 'allow_paused_activation' ), -50, 2 );
+        add_action( 'admin_enqueue_scripts', array( __CLASS__, 'history_assets' ) );
         add_action( 'admin_footer', array( __CLASS__, 'history' ) );
     }
 
@@ -37,6 +38,12 @@ final class DDW_PWL_Integration {
         if ( false === $priority ) { return; }
         remove_action( 'activate_plugin', $callback, $priority );
         $host = plugin_basename( self::$main_file );
+        /**
+         * Preserve the Library guard for other plugin activations in this request.
+         * @param string $target Plugin basename being activated.
+         * @param bool $network_wide Whether activation targets the network.
+         * @return void Delegates every non-host activation unchanged.
+         */
         add_action( 'activate_plugin', static function( $target, $network_wide ) use ( $runtime, $host ) {
             if ( $target !== $host ) { $runtime->activation_guard( $target, $network_wide ); }
         }, $priority, 2 );
@@ -48,16 +55,14 @@ final class DDW_PWL_Integration {
      */
     public static function updater() {
         if ( ! is_admin() && ! wp_doing_cron() && ! ( defined( 'WP_CLI' ) && WP_CLI ) ) { return; }
-        if ( ! class_exists( '\Deckerweb\GitHubReleaseUpdater\V2\Updater' ) ) {
-            require_once __DIR__ . '/deckerweb-github-release-updater-v2.php';
-        }
-        if ( ! defined( '\Deckerweb\GitHubReleaseUpdater\V2\Updater::SUPPORTS_HOST_TRANSLATIONS' ) ) {
-            add_action( 'admin_notices', array( __CLASS__, 'updater_notice' ) );
-            return;
-        }
         $language = 0 === strpos( determine_locale(), 'de' ) ? 'de' : 'en';
         try {
-            $updater = new \Deckerweb\GitHubReleaseUpdater\V2\Updater(
+            $updater_class = require __DIR__ . '/deckerweb-github-release-updater-v2.php';
+            if ( ! is_string( $updater_class ) || ! defined( $updater_class . '::SUPPORTS_HOST_TRANSLATIONS' ) ) {
+                add_action( 'admin_notices', array( __CLASS__, 'updater_notice' ) );
+                return;
+            }
+            $updater = new $updater_class(
                 self::$main_file, 'https://github.com/deckerweb/purify-wpcode-lite',
                 __( 'Purify WPCode Lite', 'purify-wpcode-lite' ),
                 __( 'Remove promotional elements from WPCode Lite while preserving useful free features.', 'purify-wpcode-lite' ),
@@ -144,6 +149,26 @@ final class DDW_PWL_Integration {
     }
 
     /**
+     * Provide the language-specific, formatted documentation fallback.
+     * @return string HTTPS changelog URL in the current admin language.
+     */
+    public static function history_url() {
+        return 'https://github.com/deckerweb/purify-wpcode-lite/wiki/' .
+            ( 0 === strpos( determine_locale(), 'de' ) ? 'Changelog-de' : 'Changelog' );
+    }
+
+    /**
+     * Enqueue history assets only on authorized plugin-list screens.
+     * @return void Registers local CSS and the footer controller.
+     */
+    public static function history_assets() {
+        $screen = get_current_screen();
+        if ( ! current_user_can( 'activate_plugins' ) || ! $screen || 'plugins' !== $screen->base ) { return; }
+        wp_enqueue_style( 'pwl-history', plugins_url( '../assets/css/history.css', __FILE__ ), array(), '1.1.1' );
+        wp_enqueue_script( 'pwl-history', plugins_url( '../assets/js/history.js', __FILE__ ), array(), '1.1.1', true );
+    }
+
+    /**
      * Render a bounded, escaped history dialog on the existing plugin list only.
      * @return void Outputs localized accessible history; no branding page is created.
      */
@@ -152,10 +177,9 @@ final class DDW_PWL_Integration {
         if ( ! current_user_can( 'activate_plugins' ) || ! $screen || 'plugins' !== $screen->base ) { return; }
         require_once __DIR__ . '/deckerweb-changelog-v1.php';
         $text = require __DIR__ . '/history.php';
-        echo '<dialog id="pwl-history" aria-labelledby="pwl-history-title"><h2 id="pwl-history-title">' . esc_html__( 'Purify WPCode Lite changelog', 'purify-wpcode-lite' ) . '</h2>';
-        echo Deckerweb_Changelog_Renderer_V1::render( $text ); // Escapes all source text internally.
-        echo '<button type="button" data-pwl-history-close>' . esc_html__( 'Close', 'purify-wpcode-lite' ) . '</button></dialog>';
-        echo '<style>#pwl-history{max-width:40rem;width:calc(100% - 3rem);max-height:80vh;overflow:auto;border:1px solid #ccd0d4;border-radius:8px;padding:1.5rem}#pwl-history::backdrop{background:rgba(0,0,0,.45)}#pwl-history .ddw-changelog-badge{display:inline-block;border-radius:4px;padding:2px 6px;margin-right:8px;background:#eef0f4;font-weight:600}#pwl-history .ddw-changelog-new{background:#e4f2e8}#pwl-history .ddw-changelog-improved{background:#e6effa}#pwl-history .ddw-changelog-fixed{background:#fff0df}#pwl-history .ddw-changelog-version{display:flex;align-items:baseline;gap:1rem}#pwl-history button:focus-visible{outline:2px solid #2271b1;outline-offset:3px}</style>';
-        wp_enqueue_script( 'pwl-history', plugins_url( '../assets/js/history.js', __FILE__ ), array(), '1.1.0', true );
+        echo '<dialog hidden id="pwl-history" aria-labelledby="pwl-history-title"><h2 id="pwl-history-title">' . esc_html__( 'Purify WPCode Lite changelog', 'purify-wpcode-lite' ) . '</h2>';
+        echo wp_kses_post( Deckerweb_Changelog_Renderer_V1::render( $text ) );
+        echo '<form method="dialog"><button type="submit" data-pwl-history-close>' . esc_html__( 'Close', 'purify-wpcode-lite' ) . '</button></form></dialog>';
+
     }
 }

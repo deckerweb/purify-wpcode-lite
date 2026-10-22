@@ -6,7 +6,7 @@
 
 Purify removes known promotional elements from WPCode Lite while keeping useful free features accessible.
 
-Version **1.1.0** · WordPress **6.7+** · PHP **7.4+** · GPL v2 or later
+Version **1.1.1** · WordPress **6.7+** · PHP **8.1+** · GPL v2 or later
 
 [Installation](#installation) · [Requirements and limits](#requirements-and-limits) · [FAQ](#frequently-asked-questions) · [Changelog](#changelog)
 
@@ -29,7 +29,7 @@ Named PHP hooks and page adapters suppress promotion before output where possibl
 
 ## Requirements and limits
 
-Minimum headers remain WordPress 6.7 and PHP 7.4. Embedded Library 0.8.1 requires PHP 8.0 and WordPress 6.4; its bootstrap checks requirements before loading and reports incompatibility. The updater is version 2.1.0. Admin routes, PHP snippet saving and dialogs were tested in isolation with WordPress 7.1.3/PHP 8.4.5. Network activation was tested; complete installation/update delivery, ClassicPress and minimum-version environments are not verified. Hidden premium menu destinations may remain directly accessible.
+Requires WordPress 6.7 and PHP 8.1 or newer. Includes Library 1.1.0 and Updater 2.2.1. Cleanup still targets WPCode Lite 2.3.9 and 2.4.0 and pauses with unverified versions. Hidden premium menu destinations may remain directly accessible. ClassicPress and full production update delivery are not verified.
 
 ## Frequently asked questions
 
@@ -65,15 +65,21 @@ The updater checks this public GitHub repository through WordPress update checks
 
 ## Changelog
 
+### 1.1.1 · 2026-10-22
+
+- **Improved:** Updated plugin catalog and GitHub update handling.
+- **Fixed:** The local changelog stays closed until opened and keeps a documentation fallback.
+- **Misc:** Requires PHP 8.1 or newer; WordPress 6.7 remains supported.
+
 ### 1.1.0 · 2026-10-09
 
 - **New:** Shared plugin catalog, GitHub release updates and local changelog.
 - **Improved:** Cleanup supports WPCode Lite 2.4.0 and preserves useful free features.
 - **Fixed:** Unverified WPCode versions pause cleanup safely.
 - **Fixed:** German dialog translations load through the plugin textdomain.
+- **Fixed:** Activation stays in the WordPress admin when WPCode Lite is missing or inactive; cleanup remains paused.
 - **Misc:** Newsletter links do not include personal account details.
 - **Misc:** Updated local artwork.
-- **Fixed:** Activation stays in the WordPress admin when WPCode Lite is missing or inactive; cleanup remains paused.
 
 ### 1.0.0 · 2025-04-04
 

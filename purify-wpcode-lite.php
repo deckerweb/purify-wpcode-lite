@@ -3,9 +3,9 @@
  * Plugin Name: Purify WPCode Lite
  * Plugin URI: https://github.com/deckerweb/purify-wpcode-lite
  * Description: Remove promotional elements from WPCode Lite while preserving useful free features.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Requires at least: 6.7
- * Requires PHP: 7.4
+ * Requires PHP: 8.1
  * Author: David Decker – DECKERWEB
  * Author URI: https://github.com/deckerweb
  * License: GPL v2 or later
@@ -30,7 +30,7 @@ if ( ! class_exists( 'DDW_Purify_WPCode_Lite' ) ) :
 class DDW_Purify_WPCode_Lite {
 
 	/** Class constants & variables */
-	private const VERSION = '1.1.0';
+	private const VERSION = '1.1.1';
 
 	/**
 	 * Constructor
@@ -450,7 +450,7 @@ function ddw_pwl_pluginrow_meta( $ddwp_meta, $ddwp_file ) {
 
 	/** List additional links only for this plugin */
 	if ( $ddwp_file === trailingslashit( dirname( plugin_basename( __FILE__ ) ) ) . basename( __FILE__ ) ) {
-		$ddwp_meta[] = '<button type="button" class="button-link" data-pwl-history>' . esc_html__( 'Changelog', 'purify-wpcode-lite' ) . '</button>';
+		$ddwp_meta[] = '<a href="' . esc_url( DDW_PWL_Integration::history_url() ) . '" data-pwl-history>' . esc_html__( 'Changelog', 'purify-wpcode-lite' ) . '</a>';
 		$ddwp_meta[] = DDW_PWL_Integration::status_label();
 		$ddwp_meta[] = sprintf(
 			'<a class="button button-inline" href="https://ko-fi.com/deckerweb" target="_blank" rel="nofollow noopener noreferrer" title="%1$s">❤ <b>%1$s</b></a>',

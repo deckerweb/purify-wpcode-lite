@@ -1,6 +1,8 @@
 # FAQ by topic
 
-[Deutsch](FAQ.de.md)
+[Deutsch](Fragen-nach-Themen)
+
+## Getting started
 
 ### Does it unlock Pro features?
 
@@ -10,6 +12,8 @@ No. Unavailable Pro options keep honest labels and neutral dialogs.
 
 The cleanup targets Lite 2.3.9 and 2.4.0. With another version, missing WPCode or active WPCode Pro, cleanup pauses and the Plugins page explains its status.
 
+## Everyday use and features
+
 ### Where do I configure it?
 
 Cleanup works automatically. The shared catalog has its own existing integration under Plugins; Purify adds no separate branding settings page.
@@ -17,6 +21,8 @@ Cleanup works automatically. The shared catalog has its own existing integration
 ### Does it disable error messages or tracking?
 
 No. Error, security and save messages remain. Your tracking selection is unchanged. The remote news/marketing inbox is disabled; that inbox can also contain product news.
+
+## Data and technical questions
 
 ### Does it support Multisite?
 

@@ -22,7 +22,7 @@ for lang,d in content.items():
 3. Status unter Plugins prüfen; bei unterstütztem WPCode arbeitet die Bereinigung automatisch.''' if de else '''1. Install the ZIP under Plugins → Add New → Upload Plugin.
 2. Activate WPCode Lite and Purify. Do not run a duplicate Purify snippet.
 3. Check its status under Plugins; cleanup runs automatically with supported WPCode.'''
- limits='''Die Mindestangaben bleiben WordPress 6.7 und PHP 7.4. Die eingebettete Library 0.8.1 benötigt PHP 8.0 und WordPress 6.4; ihr Bootstrap prüft Anforderungen vor dem Laden und zeigt bei Inkompatibilität einen Hinweis. Der Updater ist Version 2.1.0. Admin-Seiten, PHP-Snippet-Speicherung und Dialoge wurden isoliert mit WordPress 7.1.3/PHP 8.4.5 geprüft. Netzwerkaktivierung ist geprüft; vollständige Installations-/Updatezustellung, ClassicPress und Mindestversionen sind nicht bestätigt. Versteckte Premium-Menüs können weiterhin direkt erreichbar sein.''' if de else '''Minimum headers remain WordPress 6.7 and PHP 7.4. Embedded Library 0.8.1 requires PHP 8.0 and WordPress 6.4; its bootstrap checks requirements before loading and reports incompatibility. The updater is version 2.1.0. Admin routes, PHP snippet saving and dialogs were tested in isolation with WordPress 7.1.3/PHP 8.4.5. Network activation was tested; complete installation/update delivery, ClassicPress and minimum-version environments are not verified. Hidden premium menu destinations may remain directly accessible.'''
+ limits="""WordPress 6.7 und PHP 8.1 oder neuer sind erforderlich. Enthalten sind Library 1.1.0 und Updater 2.2.1. Die Bereinigung gilt weiterhin für WPCode Lite 2.3.9 und 2.4.0; bei ungeprüften Versionen pausiert sie. Versteckte Premium-Menüs können weiterhin direkt erreichbar sein. ClassicPress und vollständige produktive Updatezustellung sind nicht bestätigt.""" if de else """Requires WordPress 6.7 and PHP 8.1 or newer. Includes Library 1.1.0 and Updater 2.2.1. Cleanup still targets WPCode Lite 2.3.9 and 2.4.0 and pauses with unverified versions. Hidden premium menu destinations may remain directly accessible. ClassicPress and full production update delivery are not verified."""
  titleinstall='Installation' if de else 'Installation';titlelimits='Voraussetzungen und Grenzen' if de else 'Requirements and limits';titlefaq='Häufige Fragen' if de else 'Frequently asked questions';titlechanges='Änderungsverlauf' if de else 'Changelog'
  text=f'''# Purify WPCode Lite
 
@@ -32,7 +32,7 @@ for lang,d in content.items():
 
 {d['intro']}
 
-Version **1.1.0** · WordPress **6.7+** · PHP **7.4+** · GPL v2 or later
+Version **1.1.1** · WordPress **6.7+** · PHP **8.1+** · GPL v2 or later
 
 [Installation](#installation) · [{titlelimits}](#{'voraussetzungen-und-grenzen' if de else 'requirements-and-limits'}) · [FAQ](#{'häufige-fragen' if de else 'frequently-asked-questions'}) · [{titlechanges}](#{'änderungsverlauf' if de else 'changelog'})
 
@@ -83,7 +83,7 @@ Copyright © 2025–2026 David Decker – DECKERWEB. GPL-2.0-or-later.
  (r/'docs').mkdir(exist_ok=True)
  (r/'docs'/('FAQ.de.md' if de else 'FAQ.en.md')).write_text('# '+faqhead+'\n\n'+('[English](FAQ.en.md)' if de else '[Deutsch](FAQ.de.md)')+'\n\n'+faq+'\n')
 # Native readme is a generated companion, not a WordPress.org distribution claim.
-d=content['en'];(r/'readme.txt').write_text('=== Purify WPCode Lite ===\nContributors: deckerweb\nRequires at least: 6.7\nRequires PHP: 7.4\nStable tag: 1.1.0\nLicense: GPLv2 or later\nLicense URI: https://www.gnu.org/licenses/gpl-2.0.html\n\n'+d['intro']+'\n\n== Description ==\n\n'+ '\n'.join('* '+x for x in d['glance'])+'\n\n== Installation ==\n\nUpload the plugin ZIP, activate WPCode Lite and Purify, and check the Plugins-page status.\n\n== Frequently Asked Questions ==\n\n'+'\n\n'.join('= '+q+' =\n\n'+a for q,a in d['faq'])+'\n\n== Changelog ==\n\n'+'\n\n'.join('= '+v+' · '+date+' =\n\n'+'\n'.join('* '+p+': '+t for p,t in items) for v,date,items in d['history'])+'\n')
+d=content['en'];(r/'readme.txt').write_text('=== Purify WPCode Lite ===\nContributors: deckerweb\nRequires at least: 6.7\nTested up to: 7.1\nRequires PHP: 8.1\nStable tag: 1.1.1\nLicense: GPLv2 or later\nLicense URI: https://www.gnu.org/licenses/gpl-2.0.html\n\n'+d['intro']+'\n\n== Description ==\n\n'+ '\n'.join('* '+x for x in d['glance'])+'\n\n== Installation ==\n\nUpload the plugin ZIP, activate WPCode Lite and Purify, and check the Plugins-page status.\n\n== Frequently Asked Questions ==\n\n'+'\n\n'.join('= '+q+' =\n\n'+a for q,a in d['faq'])+'\n\n== Changelog ==\n\n'+'\n\n'.join('= '+v+' · '+date+' =\n\n'+'\n'.join('* '+p+': '+t for p,t in items) for v,date,items in d['history'])+'\n')
 # Populate new host strings in informal/formal German, retaining existing translations.
 translations={
 'This feature is unavailable in WPCode Lite.':'Diese Funktion ist in WPCode Lite nicht verfügbar.',
@@ -110,17 +110,23 @@ for locale in ['de_DE','de_DE_formal']:
  if locale.endswith('formal'):
   table['Purify WPCode Lite could not initialize its updater. Check the installed deckerweb Updater copies.']='Purify WPCode Lite konnte seinen Updater nicht starten. Prüfen Sie die installierten deckerweb-Updater-Kopien.'
   table['Activate WPCode Lite to enable cleanup.']='Aktivieren Sie WPCode Lite, um die Bereinigung zu nutzen.'
- header='Project-Id-Version: Purify WPCode Lite 1.1.0\nPO-Revision-Date: 2026-10-09 12:00+0200\nLast-Translator: David Decker – DECKERWEB\nLanguage-Team: German\nLanguage: '+locale+'\nContent-Type: text/plain; charset=UTF-8\nMIME-Version: 1.0\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n'
+ header='Project-Id-Version: Purify WPCode Lite 1.1.1\nPO-Revision-Date: 2026-10-22 12:00+0200\nLast-Translator: David Decker – DECKERWEB\nLanguage-Team: German\nLanguage: '+locale+'\nContent-Type: text/plain; charset=UTF-8\nMIME-Version: 1.0\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n'
  new='msgid ""\nmsgstr '+json.dumps(header,ensure_ascii=False)+'\n\n'+'\n\n'.join('msgid '+json.dumps(a,ensure_ascii=False)+'\nmsgstr '+json.dumps(b,ensure_ascii=False) for a,b in table.items())+'\n'
  new += '\nmsgctxt \"Plugins page listing\"\nmsgid \"Join the newsletter\"\nmsgstr \"Newsletter abonnieren\"\n'
  (scratch/(locale+'.po')).write_text(new)
  dest=r/'languages'/('purify-wpcode-lite-'+locale+'.po')
- subprocess.run(['msgcat','--use-first',str(scratch/(locale+'.po')),str(dest),str(lib/(locale+'.po')),'-o',str(scratch/('merged-'+locale+'.po'))],check=True)
+ subprocess.run(['msgcat','--use-first',str(scratch/(locale+'.po')),str(dest),str(r/'resources/updater-strings'/('updater-'+locale+'.po')),str(lib/(locale+'.po')),'-o',str(scratch/('merged-'+locale+'.po'))],check=True)
  subprocess.run(['msgmerge','--no-fuzzy-matching',str(scratch/('merged-'+locale+'.po')),str(r/'languages/purify-wpcode-lite.pot'),'-o',str(dest)],check=True)
  cleaned=scratch/('cleaned-'+locale+'.po');subprocess.run(['msgattrib','--no-obsolete',str(dest),'-o',str(cleaned)],check=True);dest.write_bytes(cleaned.read_bytes())
  mo=dest.with_suffix('.mo');subprocess.run(['msgfmt','--check',str(dest),'-o',str(mo)],check=True)
  # Remove stale optimized catalogs: WordPress can otherwise prefer obsolete messages over updated MO.
  dest.with_suffix('.l10n.php').unlink(missing_ok=True)
- cat=gettext.GNUTranslations(mo.open('rb')); missing=[a for a in translations if cat.gettext(a)==a and a!=cat.gettext(a)]
+ cat=gettext.GNUTranslations(mo.open('rb')); missing=[a for a in translations if a not in cat._catalog and a != 'Join the newsletter']; assert not missing, missing
  print(locale,'compiled messages:',len(cat._catalog))
 print('Documentation, history and all host language resources generated.')
+
+# One local wiki export, regenerated from the same maintained bilingual content.
+exec(compile((r/'tools/build-wiki.py').read_text(), str(r/'tools/build-wiki.py'), 'exec'))
+
+# Keep GitHub Pages synchronized with the same release content.
+exec(compile((r/'tools/build-pages.py').read_text(), str(r/'tools/build-pages.py'), 'exec'))

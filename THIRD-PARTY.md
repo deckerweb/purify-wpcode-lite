@@ -3,7 +3,7 @@
 [Deutsch](#deutsch)
 
 - Purify WPCode Lite: David Decker, GPL-2.0-or-later. Main project: https://github.com/deckerweb/purify-wpcode-lite.
-- Embedded deckerweb Library 0.8.1 and deckerweb Updater 2.1.0: David Decker, GPL-2.0-or-later. Their stable runtime sources are embedded unchanged. Updater source: https://github.com/deckerweb/deckerweb-updater. Library source: https://github.com/deckerweb/deckerweb-plugin-library.
+- Embedded deckerweb Library 1.1.0 and deckerweb Updater 2.2.1: David Decker, GPL-2.0-or-later. Their stable runtime sources are embedded unchanged. Updater source: https://github.com/deckerweb/deckerweb-updater. Library source: https://github.com/deckerweb/deckerweb-plugin-library.
 - Shared changelog renderer: David Decker, GPL-2.0-or-later; reused from Advanced Scripts QuickNav. https://github.com/deckerweb/advanced-scripts-quicknav.
 - Existing toolbar SVG paths match Remix Icon v4.6.0 exactly. That historical source uses Apache-2.0; its license is bundled under `licenses/RemixIcon-Apache-2.0.txt`. https://github.com/Remix-Design/RemixIcon/tree/v4.6.0. The current Remix license is different and is not used to relicense these historical paths.
 - Approved artwork A: original vector motifs with Inter lettering outlined as paths. Inter is licensed under SIL OFL 1.1; see `licenses/Inter-OFL.txt`. No runtime font loading is needed. Historical Tabler artwork is retained only in the private archive.

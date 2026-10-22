@@ -6,7 +6,7 @@
 
 Purify entfernt bekannte Werbung aus WPCode Lite und erhält den Zugriff auf nützliche Free-Funktionen.
 
-Version **1.1.0** · WordPress **6.7+** · PHP **7.4+** · GPL v2 or later
+Version **1.1.1** · WordPress **6.7+** · PHP **8.1+** · GPL v2 or later
 
 [Installation](#installation) · [Voraussetzungen und Grenzen](#voraussetzungen-und-grenzen) · [FAQ](#häufige-fragen) · [Änderungsverlauf](#änderungsverlauf)
 
@@ -29,7 +29,7 @@ Benannte PHP-Hooks und Seitenadapter unterbinden Werbung bevorzugt vor der Ausga
 
 ## Voraussetzungen und Grenzen
 
-Die Mindestangaben bleiben WordPress 6.7 und PHP 7.4. Die eingebettete Library 0.8.1 benötigt PHP 8.0 und WordPress 6.4; ihr Bootstrap prüft Anforderungen vor dem Laden und zeigt bei Inkompatibilität einen Hinweis. Der Updater ist Version 2.1.0. Admin-Seiten, PHP-Snippet-Speicherung und Dialoge wurden isoliert mit WordPress 7.1.3/PHP 8.4.5 geprüft. Netzwerkaktivierung ist geprüft; vollständige Installations-/Updatezustellung, ClassicPress und Mindestversionen sind nicht bestätigt. Versteckte Premium-Menüs können weiterhin direkt erreichbar sein.
+WordPress 6.7 und PHP 8.1 oder neuer sind erforderlich. Enthalten sind Library 1.1.0 und Updater 2.2.1. Die Bereinigung gilt weiterhin für WPCode Lite 2.3.9 und 2.4.0; bei ungeprüften Versionen pausiert sie. Versteckte Premium-Menüs können weiterhin direkt erreichbar sein. ClassicPress und vollständige produktive Updatezustellung sind nicht bestätigt.
 
 ## Häufige Fragen
 
@@ -65,15 +65,21 @@ Der Updater prüft dieses öffentliche GitHub-Repository über WordPress-Updatep
 
 ## Änderungsverlauf
 
+### 1.1.1 · 2026-10-22
+
+- **Verbessert:** Plugin-Katalog und GitHub-Updateversorgung aktualisiert.
+- **Behoben:** Der lokale Änderungsverlauf bleibt bis zum Öffnen verborgen und behält einen Dokumentationslink als Fallback.
+- **Sonstiges:** Benötigt PHP 8.1 oder neuer; WordPress 6.7 bleibt unterstützt.
+
 ### 1.1.0 · 2026-10-09
 
 - **Neu:** Gemeinsamer Plugin-Katalog, GitHub-Release-Updates und lokaler Änderungsverlauf.
 - **Verbessert:** Die Bereinigung unterstützt WPCode Lite 2.4.0 und erhält nützliche Free-Funktionen.
 - **Behoben:** Bei ungeprüften WPCode-Versionen pausiert die Bereinigung sicher.
 - **Behoben:** Deutsche Dialogübersetzungen werden über die Plugin-Textdomain geladen.
+- **Behoben:** Bei fehlendem oder inaktivem WPCode Lite bleibt die Aktivierung im WordPress-Admin; die Bereinigung pausiert.
 - **Sonstiges:** Newsletter-Links enthalten keine persönlichen Kontodaten.
 - **Sonstiges:** Lokale Grafiken aktualisiert.
-- **Behoben:** Bei fehlendem oder inaktivem WPCode Lite bleibt die Aktivierung im WordPress-Admin; die Bereinigung pausiert.
 
 ### 1.0.0 · 2025-04-04
 

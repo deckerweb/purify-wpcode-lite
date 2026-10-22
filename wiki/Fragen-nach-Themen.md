@@ -1,6 +1,8 @@
 # Fragen nach Themen
 
-[English](FAQ.en.md)
+[English](FAQ-by-topic)
+
+## Einstieg
 
 ### Werden Pro-Funktionen freigeschaltet?
 
@@ -10,6 +12,8 @@ Nein. Nicht verfügbare Pro-Optionen behalten sachliche Kennzeichnungen und neut
 
 Die Bereinigung richtet sich an Lite 2.3.9 und 2.4.0. Bei einer anderen Version, fehlendem WPCode oder aktivem WPCode Pro pausiert sie; die Plugins-Seite erklärt den Status.
 
+## Alltag und Funktionen
+
 ### Wo kann ich es konfigurieren?
 
 Die Bereinigung arbeitet automatisch. Der gemeinsame Katalog hat seine vorhandene Einbindung unter Plugins; Purify erzeugt keine eigene Einstellungsseite nur für Branding.
@@ -17,6 +21,8 @@ Die Bereinigung arbeitet automatisch. Der gemeinsame Katalog hat seine vorhanden
 ### Werden Fehlerhinweise oder Tracking deaktiviert?
 
 Nein. Fehler-, Sicherheits- und Speicherhinweise bleiben erhalten. Deine Tracking-Auswahl bleibt unverändert. Die Remote-News-/Marketing-Inbox wird deaktiviert; sie kann auch Produktneuigkeiten enthalten.
+
+## Daten und technische Fragen
 
 ### Wird Multisite unterstützt?
 

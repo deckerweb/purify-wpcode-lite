@@ -1,17 +1,33 @@
-/* Native dialog keeps keyboard focus inside the local plugin history. */
+/* Local history with native dialog methods and a real documentation fallback. */
 (function () {
     'use strict';
+    if (document.documentElement.dataset.pwlHistoryReady) return;
+    document.documentElement.dataset.pwlHistoryReady = '1';
     var dialog = document.getElementById('pwl-history');
-    if (!dialog) return;
+    var proto = window.HTMLDialogElement && window.HTMLDialogElement.prototype;
+    if (!dialog || !proto || typeof proto.showModal !== 'function' || typeof proto.close !== 'function') return;
     var opener;
-    document.querySelectorAll('[data-pwl-history]').forEach(function (button) {
-        button.addEventListener('click', function () {
-            opener = button;
-            dialog.showModal();
-            dialog.querySelector('[data-pwl-history-close]').focus();
-        });
+    function close() {
+        try { proto.close.call(dialog); } catch (error) { dialog.removeAttribute('open'); }
+        dialog.hidden = true;
+        if (opener && opener.isConnected) opener.focus();
+    }
+    document.addEventListener('click', function (event) {
+        var link = event.target.closest && event.target.closest('[data-pwl-history]');
+        if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        opener = link;
+        dialog.hidden = false;
+        try { proto.showModal.call(dialog); } catch (error) { dialog.hidden = true; return; }
+        if (!dialog.open) { dialog.hidden = true; return; }
+        event.preventDefault();
+        dialog.querySelector('[data-pwl-history-close]').focus();
+    }, true);
+    dialog.addEventListener('submit', function (event) { event.preventDefault(); close(); }, true);
+    dialog.addEventListener('cancel', function (event) { event.preventDefault(); close(); });
+    dialog.addEventListener('click', function (event) {
+        if (event.target !== dialog) return;
+        var box = dialog.getBoundingClientRect();
+        if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) close();
     });
-    dialog.querySelector('[data-pwl-history-close]').addEventListener('click', function () { dialog.close(); });
-    dialog.addEventListener('click', function (event) { if (event.target === dialog) { var box = dialog.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close(); } });
-    dialog.addEventListener('close', function () { if (opener && opener.isConnected) opener.focus(); });
+    dialog.addEventListener('close', function () { dialog.hidden = true; if (opener && opener.isConnected) opener.focus(); });
 }());

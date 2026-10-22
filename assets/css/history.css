@@ -1,0 +1,6 @@
+#pwl-history[hidden]:not([open]),#pwl-history:not([open]){display:none!important;visibility:hidden!important;pointer-events:none!important}
+#pwl-history[open]{display:block!important;visibility:visible!important;pointer-events:auto!important;max-width:40rem;width:calc(100% - 3rem);max-height:80vh;overflow:auto;border:1px solid #ccd0d4;border-radius:8px;padding:1.5rem}
+#pwl-history::backdrop{background:rgba(0,0,0,.45)}
+#pwl-history .ddw-changelog-badge{display:inline-block;border-radius:4px;padding:2px 6px;margin-right:8px;background:#eef0f4;font-weight:600}
+#pwl-history .ddw-changelog-new{background:#e4f2e8}#pwl-history .ddw-changelog-improved{background:#e6effa}#pwl-history .ddw-changelog-fixed{background:#fff0df}
+#pwl-history .ddw-changelog-version{display:flex;align-items:baseline;gap:1rem}#pwl-history button:focus-visible{outline:2px solid #2271b1;outline-offset:3px}

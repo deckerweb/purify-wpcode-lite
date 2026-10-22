@@ -1,1 +1,20 @@
 theme: jekyll-theme-cayman
+title: Purify WPCode Lite
+description: More focus. Less distraction.
+url: https://deckerweb.github.io
+baseurl: /purify-wpcode-lite
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+exclude:
+  - includes
+  - languages
+  - licenses
+  - resources
+  - tools
+  - tests
+  - wiki
+  - readme.txt
+  - README.md
+  - README.de.md
