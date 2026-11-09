@@ -3,7 +3,7 @@
  * Plugin Name: Purify WPCode Lite
  * Plugin URI: https://github.com/deckerweb/purify-wpcode-lite
  * Description: Remove promotional elements from WPCode Lite while preserving useful free features.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Requires at least: 6.7
  * Requires PHP: 8.1
  * Author: David Decker – DECKERWEB
@@ -30,7 +30,7 @@ if ( ! class_exists( 'DDW_Purify_WPCode_Lite' ) ) :
 class DDW_Purify_WPCode_Lite {
 
 	/** Class constants & variables */
-	private const VERSION = '1.1.1';
+	private const VERSION = '1.1.2';
 
 	/**
 	 * Constructor

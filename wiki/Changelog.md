@@ -2,6 +2,10 @@
 
 [Deutsch](Changelog-de)
 
+## 1.1.2 · 2026-11-09
+
+- **Fixed:** Updated deckerweb Library to 1.3.0 and Updater to 2.4.0: normal updates are independent of the catalog, with bounded downloads and stricter package checks.
+
 ## 1.1.1 · 2026-10-22
 
 - **Improved:** Updated plugin catalog and GitHub update handling.

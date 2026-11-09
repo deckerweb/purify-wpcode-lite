@@ -10,7 +10,7 @@ layout: default
 
 Purify removes known promotional elements from WPCode Lite while keeping useful free features accessible.
 
-Version **1.1.1** · WordPress **6.7+** · PHP **8.1+** · GPL v2 or later
+Version **1.1.2** · WordPress **6.7+** · PHP **8.1+** · GPL v2 or later
 
 [Installation](#installation) · [Requirements and limits](#requirements-and-limits) · [FAQ](#frequently-asked-questions) · [Changelog](#changelog)
 
@@ -33,7 +33,7 @@ Named PHP hooks and page adapters suppress promotion before output where possibl
 
 ## Requirements and limits
 
-Requires WordPress 6.7 and PHP 8.1 or newer. Includes Library 1.1.0 and Updater 2.2.1. Cleanup still targets WPCode Lite 2.3.9 and 2.4.0 and pauses with unverified versions. Hidden premium menu destinations may remain directly accessible. ClassicPress and full production update delivery are not verified.
+Requires WordPress 6.7 and PHP 8.1 or newer. Includes Library 1.3.0 and Updater 2.4.0. Cleanup still targets WPCode Lite 2.3.9 and 2.4.0 and pauses with unverified versions. Hidden premium menu destinations may remain directly accessible. ClassicPress and full production update delivery are not verified.
 
 ## Frequently asked questions
 
@@ -68,6 +68,10 @@ The updater checks this public GitHub repository through WordPress update checks
 [Full FAQ by topic](docs/FAQ.en.html)
 
 ## Changelog
+
+### 1.1.2 · 2026-11-09
+
+- **Fixed:** Updated deckerweb Library to 1.3.0 and Updater to 2.4.0: normal updates are independent of the catalog, with bounded downloads and stricter package checks.
 
 ### 1.1.1 · 2026-10-22
 

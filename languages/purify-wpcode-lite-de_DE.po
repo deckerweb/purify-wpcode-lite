@@ -1,8 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Purify WPCode Lite 1.1.1\n"
+"Project-Id-Version: Purify WPCode Lite 1.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-22 12:10+0200\n"
 "PO-Revision-Date: 2026-10-22 12:00+0200\n"
 "Last-Translator: David Decker – DECKERWEB\n"
 "Language-Team: German\n"
@@ -11,286 +10,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: purify-wpcode-lite.php:161
-msgid "Code Snippet"
-msgstr "Code Snippet"
-
-#: purify-wpcode-lite.php:168
-msgid "Import Snippet"
-msgstr "Snippet importieren"
-
-#: purify-wpcode-lite.php:183
-msgid "Add Snippet"
-msgstr "Neues Snippet"
-
-#: purify-wpcode-lite.php:193
-msgid "Import Snippets"
-msgstr "Snippets importieren"
-
-#: purify-wpcode-lite.php:203
-msgid "Export Snippets"
-msgstr "Snippet exportieren"
-
-#: purify-wpcode-lite.php:218
-msgid "Settings"
-msgstr "Einstellungen"
-
-#: purify-wpcode-lite.php:228
-msgid "Tools"
-msgstr "Werkzeuge"
-
-#: purify-wpcode-lite.php:244
-msgid "Snippets Library"
-msgstr "Snippets-Bibliothek"
-
-#: purify-wpcode-lite.php:254
-msgid "Help & Docs"
-msgstr "Hilfe & Docs"
-
-#: purify-wpcode-lite.php:308
-msgid "This feature is unavailable in WPCode Lite."
-msgstr "Diese Funktion ist in WPCode Lite nicht verfügbar."
-
-#: purify-wpcode-lite.php:309
-msgid ""
-"No additional free snippets are currently available for the installed "
-"plugins."
-msgstr ""
-"Für die installierten Plugins sind derzeit keine zusätzlichen Free-Snippets "
-"verfügbar."
-
-#: purify-wpcode-lite.php:310 includes/integration.php:182
-msgid "Close"
-msgstr "Schließen"
-
-#: purify-wpcode-lite.php:453
-msgid "Changelog"
-msgstr "Änderungsverlauf"
-
-#: purify-wpcode-lite.php:457
-msgctxt "Plugins page listing"
-msgid "Donate"
-msgstr "Spenden"
-
-#: purify-wpcode-lite.php:463
-msgctxt "Plugins page listing"
-msgid "Join the newsletter"
-msgstr "Newsletter abonnieren"
-
-#: includes/integration.php:67
-msgid "Purify WPCode Lite"
-msgstr "Purify WPCode Lite"
-
-#: includes/integration.php:68
-msgid ""
-"Remove promotional elements from WPCode Lite while preserving useful free "
-"features."
-msgstr "Entfernt Werbung aus WPCode Lite und erhält nützliche Free-Funktionen."
-
-#: includes/integration.php:89
-msgid ""
-"Purify WPCode Lite could not initialize its updater. Check the installed "
-"deckerweb Updater copies."
-msgstr ""
-"Purify WPCode Lite konnte seinen Updater nicht starten. Prüfe die "
-"installierten deckerweb-Updater-Kopien."
-
-#: includes/integration.php:131
-msgid ""
-"The update package does not match Purify WPCode Lite or its supported "
-"requirements."
-msgstr ""
-"Das Updatepaket passt nicht zu Purify WPCode Lite oder seinen unterstützten "
-"Voraussetzungen."
-
-#: includes/integration.php:140
-msgid "Cleanup is inactive while WPCode Pro is active."
-msgstr "Die Bereinigung ist bei aktivem WPCode Pro inaktiv."
-
-#: includes/integration.php:143
-msgid "Activate WPCode Lite to enable cleanup."
-msgstr "Aktiviere WPCode Lite, um die Bereinigung zu nutzen."
-
-#: includes/integration.php:146
-msgid "Cleanup is paused for this unverified WPCode Lite version."
-msgstr "Die Bereinigung pausiert bei dieser ungeprüften WPCode-Lite-Version."
-
-#: includes/integration.php:180
-msgid "Purify WPCode Lite changelog"
-msgstr "Purify WPCode Lite Änderungsverlauf"
-
-#: includes/history.php:7 includes/history.php:12
-msgid "Improved"
-msgstr "Verbessert"
-
-#: includes/history.php:7
-msgid "Updated plugin catalog and GitHub update handling."
-msgstr "Plugin-Katalog und GitHub-Updateversorgung aktualisiert."
-
-#: includes/history.php:8 includes/history.php:13 includes/history.php:14
-#: includes/history.php:15
-msgid "Fixed"
-msgstr "Behoben"
-
-#: includes/history.php:8
-msgid ""
-"The local changelog stays closed until opened and keeps a documentation "
-"fallback."
-msgstr ""
-"Der lokale Änderungsverlauf bleibt bis zum Öffnen verborgen und behält einen "
-"Dokumentationslink als Fallback."
-
-#: includes/history.php:9 includes/history.php:16 includes/history.php:17
-msgid "Misc"
-msgstr "Sonstiges"
-
-#: includes/history.php:9
-msgid "Requires PHP 8.1 or newer; WordPress 6.7 remains supported."
-msgstr "Benötigt PHP 8.1 oder neuer; WordPress 6.7 bleibt unterstützt."
-
-#: includes/history.php:11 includes/history.php:19
-msgid "New"
-msgstr "Neu"
-
-#: includes/history.php:11
-msgid "Shared plugin catalog, GitHub release updates and local changelog."
-msgstr ""
-"Gemeinsamer Plugin-Katalog, GitHub-Release-Updates und lokaler "
-"Änderungsverlauf."
-
-#: includes/history.php:12
-msgid "Cleanup supports WPCode Lite 2.4.0 and preserves useful free features."
-msgstr ""
-"Die Bereinigung unterstützt WPCode Lite 2.4.0 und erhält nützliche Free-"
-"Funktionen."
-
-#: includes/history.php:13
-msgid "Unverified WPCode versions pause cleanup safely."
-msgstr "Bei ungeprüften WPCode-Versionen pausiert die Bereinigung sicher."
-
-#: includes/history.php:14
-msgid "German dialog translations load through the plugin textdomain."
-msgstr ""
-"Deutsche Dialogübersetzungen werden über die Plugin-Textdomain geladen."
-
-#: includes/history.php:15
-msgid ""
-"Activation stays in the WordPress admin when WPCode Lite is missing or "
-"inactive; cleanup remains paused."
-msgstr ""
-"Bei fehlendem oder inaktivem WPCode Lite bleibt die Aktivierung im WordPress-"
-"Admin; die Bereinigung pausiert."
-
-#: includes/history.php:16
-msgid "Newsletter links do not include personal account details."
-msgstr "Newsletter-Links enthalten keine persönlichen Kontodaten."
-
-#: includes/history.php:17
-msgid "Updated local artwork."
-msgstr "Lokale Grafiken aktualisiert."
-
-#: includes/history.php:19
-msgid "Initial public release."
-msgstr "Erste öffentliche Veröffentlichung."
-
-#: includes/updater-translations.php:13
-msgid "Private mode must be boolean."
-msgstr "Der Private-Modus muss ein boolescher Wert sein."
-
-#: includes/updater-translations.php:15
-msgid "Invalid authentication provider."
-msgstr "Ungültiger Authentifizierungsanbieter."
-
-#: includes/updater-translations.php:17
-msgid "The plugin must be installed in a stable slug directory."
-msgstr ""
-"Das Plugin muss in einem Verzeichnis mit einem festen Slug installiert sein."
-
-#: includes/updater-translations.php:19
-msgid "Invalid GitHub repository URL."
-msgstr "Ungültige GitHub-Repository-URL."
-
-#: includes/updater-translations.php:21
-msgid ""
-"The private update could not be authorized. Check the repository credentials "
-"and refresh updates."
-msgstr ""
-"Das private Update konnte nicht autorisiert werden. Prüfe die Repository-"
-"Zugangsdaten und suche erneut nach Updates."
-
-#: includes/updater-translations.php:23
-msgid "Could not create the update download file."
-msgstr "Die Datei für den Update-Download konnte nicht erstellt werden."
-
-#: includes/updater-translations.php:25
-msgid "The private update download failed. Check credentials and try again."
-msgstr ""
-"Der Download des privaten Updates ist fehlgeschlagen. Prüfe die Zugangsdaten "
-"und versuche es erneut."
-
-#: includes/updater-translations.php:27
-msgid "Could not access the update filesystem."
-msgstr "Auf das Dateisystem für das Update konnte nicht zugegriffen werden."
-
-#: includes/updater-translations.php:29
-msgid "GitHub release does not contain the plugin main file."
-msgstr "Der GitHub-Release enthält nicht die Hauptdatei des Plugins."
-
-#: includes/updater-translations.php:31
-msgid "Could not prepare the GitHub release package."
-msgstr "Das GitHub-Release-Paket konnte nicht vorbereitet werden."
-
-#: includes/updater-translations.php:33
-msgid "See the release on GitHub."
-msgstr "Sieh dir den Release auf GitHub an."
-
-#: includes/updater-translations.php:35
-msgid ""
-"Git Updater is active. If a deckerweb installation or update fails, "
-"temporarily deactivate Git Updater and retry. Reactivate it afterwards if "
-"other plugins or themes need it. Only leave it disabled when those "
-"extensions have another reliable update provider."
-msgstr ""
-"Git Updater ist aktiv. Wenn eine deckerweb-Installation oder ein Update "
-"fehlschlägt, deaktiviere Git Updater vorübergehend und versuche es erneut. "
-"Aktiviere ihn danach wieder, wenn andere Plugins oder Themes ihn benötigen. "
-"Lass ihn nur dauerhaft deaktiviert, wenn diese Erweiterungen einen anderen "
-"zuverlässigen Updateweg besitzen."
-
-#: includes/updater-translations.php:37
-msgid "Manage installed plugins"
-msgstr "Installierte Plugins verwalten"
-
-#: includes/updater-translations.php:39
-msgid "Dismiss this notice"
-msgstr "Diesen Hinweis ausblenden"
-
-#: includes/updater-translations.php:41
-msgid "Permission denied."
-msgstr "Keine Berechtigung."
-
-#: includes/updater-translations.php:43
-msgid ""
-"Public catalog callbacks require both providers and cannot be used in "
-"private mode."
-msgstr ""
-"Öffentliche Katalog-Callbacks benötigen beide Anbieter und können nicht im "
-"Private-Modus verwendet werden."
-
-#: includes/updater-translations.php:45
-msgid "The approved release could not be verified."
-msgstr "Der freigegebene Release konnte nicht geprüft werden."
-
-#: includes/updater-translations.php:47
-msgid "The approved release changed. Refresh updates first."
-msgstr ""
-"Das freigegebene Release hat sich geändert. Bitte zuerst die Updates "
-"aktualisieren."
-
-#: includes/pages-wpcode.php:11
-msgid "WPCode Lite does not require a license."
-msgstr "WPCode Lite benötigt keine Lizenz."
 
 msgid "%s is installed but inactive. Activate it first."
 msgstr "%s ist installiert, aber inaktiv. Bitte zuerst aktivieren."
@@ -317,14 +36,27 @@ msgstr ""
 "Bricks QuickNav bitte je Website aktivieren, nachdem das Bricks-Theme oder "
 "ein Child-Theme ausgewählt wurde."
 
+msgid "Activate WPCode Lite to enable cleanup."
+msgstr "Aktiviere WPCode Lite, um die Bereinigung zu nutzen."
+
 msgid "Activating…"
 msgstr "Wird aktiviert…"
+
+msgid ""
+"Activation stays in the WordPress admin when WPCode Lite is missing or "
+"inactive; cleanup remains paused."
+msgstr ""
+"Bei fehlendem oder inaktivem WPCode Lite bleibt die Aktivierung im WordPress-"
+"Admin; die Bereinigung pausiert."
 
 msgid "Active"
 msgstr "Aktiv"
 
 msgid "Active filters: "
 msgstr "Aktive Filter: "
+
+msgid "Add Snippet"
+msgstr "Neues Snippet"
 
 msgid "Admin"
 msgstr "Administration"
@@ -413,11 +145,31 @@ msgstr "Katalog-URL"
 msgid "Catalog refreshed."
 msgstr "Katalog aktualisiert."
 
+msgid "Changelog"
+msgstr "Änderungsverlauf"
+
 msgid "Check status"
 msgstr "Status prüfen"
 
 msgid "Checking status…"
 msgstr "Status wird geprüft…"
+
+msgid "Cleanup is inactive while WPCode Pro is active."
+msgstr "Die Bereinigung ist bei aktivem WPCode Pro inaktiv."
+
+msgid "Cleanup is paused for this unverified WPCode Lite version."
+msgstr "Die Bereinigung pausiert bei dieser ungeprüften WPCode-Lite-Version."
+
+msgid "Cleanup supports WPCode Lite 2.4.0 and preserves useful free features."
+msgstr ""
+"Die Bereinigung unterstützt WPCode Lite 2.4.0 und erhält nützliche Free-"
+"Funktionen."
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Code Snippet"
+msgstr "Code Snippet"
 
 msgid "Commerce"
 msgstr "Commerce"
@@ -433,6 +185,15 @@ msgstr "Kopiert."
 
 msgid "Copy diagnostic information"
 msgstr "Diagnoseinformationen kopieren"
+
+msgid "Could not access the update filesystem."
+msgstr "Auf das Dateisystem für das Update konnte nicht zugegriffen werden."
+
+msgid "Could not create the update download file."
+msgstr "Die Datei für den Update-Download konnte nicht erstellt werden."
+
+msgid "Could not prepare the GitHub release package."
+msgstr "Das GitHub-Release-Paket konnte nicht vorbereitet werden."
 
 msgid "Dec"
 msgstr "Dez"
@@ -457,6 +218,9 @@ msgstr "Zufällig entdecken"
 msgid "Dismiss permanently"
 msgstr "Dauerhaft schließen"
 
+msgid "Dismiss this notice"
+msgstr "Diesen Hinweis ausblenden"
+
 msgid "Done. The plugin is active."
 msgstr "Erledigt. Das Plugin ist aktiv."
 
@@ -465,6 +229,9 @@ msgstr "Bitte zuerst eine Katalog-URL eintragen."
 
 msgid "Expanded archive is too large."
 msgstr "Das entpackte Archiv ist zu groß."
+
+msgid "Export Snippets"
+msgstr "Snippet exportieren"
 
 msgid "F j, Y"
 msgstr "j. F Y"
@@ -491,17 +258,54 @@ msgstr "Filtern"
 msgid "Fits my installation"
 msgstr "Passt zu meiner Installation"
 
+msgid "Fixed"
+msgstr "Behoben"
+
 msgid "Fri"
 msgstr "Fr"
 
 msgid "Friday"
 msgstr "Freitag"
 
+msgid "German dialog translations load through the plugin textdomain."
+msgstr ""
+"Deutsche Dialogübersetzungen werden über die Plugin-Textdomain geladen."
+
+msgid ""
+"Git Updater is active. If a deckerweb installation or update fails, "
+"temporarily deactivate Git Updater and retry. Reactivate it afterwards if "
+"other plugins or themes need it. Only leave it disabled when those "
+"extensions have another reliable update provider."
+msgstr ""
+"Git Updater ist aktiv. Wenn eine deckerweb-Installation oder ein Update "
+"fehlschlägt, deaktiviere Git Updater vorübergehend und versuche es erneut. "
+"Aktiviere ihn danach wieder, wenn andere Plugins oder Themes ihn benötigen. "
+"Lass ihn nur dauerhaft deaktiviert, wenn diese Erweiterungen einen anderen "
+"zuverlässigen Updateweg besitzen."
+
 msgid "GitHub Stars"
 msgstr "GitHub-Sterne"
 
+msgid "GitHub release does not contain the plugin main file."
+msgstr "Der GitHub-Release enthält nicht die Hauptdatei des Plugins."
+
+msgid "Help & Docs"
+msgstr "Hilfe & Docs"
+
 msgid "Hide catalog"
 msgstr "Katalog ausblenden"
+
+msgid "Import Snippet"
+msgstr "Snippet importieren"
+
+msgid "Import Snippets"
+msgstr "Snippets importieren"
+
+msgid "Improved"
+msgstr "Verbessert"
+
+msgid "Initial public release."
+msgstr "Erste öffentliche Veröffentlichung."
 
 msgid "Install and activate this plugin in the network admin."
 msgstr "Dieses Plugin bitte im Netzwerk-Admin installieren und aktivieren."
@@ -530,11 +334,17 @@ msgstr "Installiert: "
 msgid "Installing…"
 msgstr "Wird installiert…"
 
+msgid "Invalid GitHub repository URL."
+msgstr "Ungültige GitHub-Repository-URL."
+
 msgid "Invalid ZIP archive."
 msgstr "Ungültiges ZIP-Archiv."
 
 msgid "Invalid approval flag."
 msgstr "Ungültige Freigabeangabe."
+
+msgid "Invalid authentication provider."
+msgstr "Ungültiger Authentifizierungsanbieter."
 
 msgid "Invalid catalog field: "
 msgstr "Ungültiges Katalogfeld: "
@@ -629,6 +439,9 @@ msgstr "Library-Einstellungen gespeichert."
 msgid "Manage Content"
 msgstr "Inhalte verwalten"
 
+msgid "Manage installed plugins"
+msgstr "Installierte Plugins verwalten"
+
 msgid "Mar"
 msgstr "Mär"
 
@@ -637,6 +450,9 @@ msgstr "März"
 
 msgid "May"
 msgstr "Mai"
+
+msgid "Misc"
+msgstr "Sonstiges"
 
 msgid "Missing display text."
 msgstr "Anzeigetext fehlt."
@@ -670,6 +486,19 @@ msgstr "Netzwerkweit aktiv"
 
 msgid "Network permission denied."
 msgstr "Keine Berechtigung für das Netzwerk."
+
+msgid "New"
+msgstr "Neu"
+
+msgid "Newsletter links do not include personal account details."
+msgstr "Newsletter-Links enthalten keine persönlichen Kontodaten."
+
+msgid ""
+"No additional free snippets are currently available for the installed "
+"plugins."
+msgstr ""
+"Für die installierten Plugins sind derzeit keine zusätzlichen Free-Snippets "
+"verfügbar."
 
 msgid "No approved plugins match this selection."
 msgstr "Keine freigegebenen Plugins passen zu dieser Auswahl."
@@ -732,6 +561,9 @@ msgstr "PHP-ZIP-Unterstützung wird benötigt."
 msgid "POST required."
 msgstr "Eine POST-Anfrage ist erforderlich."
 
+msgid "Permission denied."
+msgstr "Keine Berechtigung."
+
 msgid "Permission denied. Reload the page and check your permissions."
 msgstr "Zugriff verweigert. Lade die Seite neu und prüfe deine Berechtigungen."
 
@@ -747,8 +579,39 @@ msgstr "Das Plugin ist nicht installiert."
 msgid "Plugin series"
 msgstr "Plugin-Serien"
 
+msgctxt "Plugins page listing"
+msgid "Donate"
+msgstr "Spenden"
+
+msgctxt "Plugins page listing"
+msgid "Join the newsletter"
+msgstr "Newsletter abonnieren"
+
+msgid "Private mode must be boolean."
+msgstr "Der Private-Modus muss ein boolescher Wert sein."
+
 msgid "Product website"
 msgstr "Produktwebsite"
+
+msgid ""
+"Public catalog callbacks require both providers and cannot be used in "
+"private mode."
+msgstr ""
+"Öffentliche Katalog-Callbacks benötigen beide Anbieter und können nicht im "
+"Private-Modus verwendet werden."
+
+msgid "Purify WPCode Lite"
+msgstr "Purify WPCode Lite"
+
+msgid "Purify WPCode Lite changelog"
+msgstr "Purify WPCode Lite Änderungsverlauf"
+
+msgid ""
+"Purify WPCode Lite could not initialize its updater. Check the installed "
+"deckerweb Updater copies."
+msgstr ""
+"Purify WPCode Lite konnte seinen Updater nicht starten. Prüfe die "
+"installierten deckerweb-Updater-Kopien."
 
 msgid "Recently updated"
 msgstr "Zuletzt aktualisiert"
@@ -779,6 +642,11 @@ msgstr "Das Release muss genau das freigegebene Plugin-Verzeichnis enthalten."
 msgid "Remove filter: "
 msgstr "Filter entfernen: "
 
+msgid ""
+"Remove promotional elements from WPCode Lite while preserving useful free "
+"features."
+msgstr "Entfernt Werbung aus WPCode Lite und erhält nützliche Free-Funktionen."
+
 msgid "Repository & documentation"
 msgstr "Repository & Dokumentation"
 
@@ -790,6 +658,9 @@ msgstr ""
 
 msgid "Requires PHP %s or newer."
 msgstr "Benötigt PHP %s oder neuer."
+
+msgid "Requires PHP 8.1 or newer; WordPress 6.7 remains supported."
+msgstr "Benötigt PHP 8.1 oder neuer; WordPress 6.7 bleibt unterstützt."
 
 msgid "Requires WordPress %s or newer."
 msgstr "Benötigt WordPress %s oder neuer."
@@ -821,6 +692,9 @@ msgstr "Scripte"
 msgid "Search this catalog"
 msgstr "Diesen Katalog durchsuchen"
 
+msgid "See the release on GitHub."
+msgstr "Sieh dir den Release auf GitHub an."
+
 msgid "Select and copy the text."
 msgstr "Text markieren und kopieren."
 
@@ -833,8 +707,16 @@ msgstr "Sep"
 msgid "September"
 msgstr "September"
 
+msgid "Settings"
+msgstr "Einstellungen"
+
 msgid "Settings saved."
 msgstr "Einstellungen gespeichert."
+
+msgid "Shared plugin catalog, GitHub release updates and local changelog."
+msgstr ""
+"Gemeinsamer Plugin-Katalog, GitHub-Release-Updates und lokaler "
+"Änderungsverlauf."
 
 msgid "Shop"
 msgstr "Shop"
@@ -856,6 +738,9 @@ msgstr "Neu mischen"
 
 msgid "Small plugins. Practical improvements."
 msgstr "Kleine Plugins. Konkrete Verbesserungen."
+
+msgid "Snippets Library"
+msgstr "Snippets-Bibliothek"
 
 msgid "Sort by"
 msgstr "Sortieren nach"
@@ -884,6 +769,14 @@ msgstr "Die Aktion läuft noch. Bitte den Status erneut prüfen."
 msgid "The approved package could not be verified."
 msgstr "Das freigegebene Paket konnte nicht geprüft werden."
 
+msgid "The approved release changed. Refresh updates first."
+msgstr ""
+"Das freigegebene Release hat sich geändert. Bitte zuerst die Updates "
+"aktualisieren."
+
+msgid "The approved release could not be verified."
+msgstr "Der freigegebene Release konnte nicht geprüft werden."
+
 msgid "The catalog URL is not an allowed first-party HTTPS endpoint."
 msgstr "Die Katalog-URL ist keine erlaubte eigene HTTPS-Quelle."
 
@@ -911,6 +804,13 @@ msgstr ""
 "nicht bestätigt werden."
 
 msgid ""
+"The local changelog stays closed until opened and keeps a documentation "
+"fallback."
+msgstr ""
+"Der lokale Änderungsverlauf bleibt bis zum Öffnen verborgen und behält einen "
+"Dokumentationslink als Fallback."
+
+msgid ""
 "The online catalog is unavailable. Showing cached or bundled entries; online "
 "approval is checked again before installation."
 msgstr ""
@@ -920,6 +820,22 @@ msgstr ""
 
 msgid "The online catalog source is not trusted."
 msgstr "Die Online-Katalogquelle ist nicht vertrauenswürdig."
+
+msgid "The plugin must be installed in a stable slug directory."
+msgstr ""
+"Das Plugin muss in einem Verzeichnis mit einem festen Slug installiert sein."
+
+msgid ""
+"The private update could not be authorized. Check the repository credentials "
+"and refresh updates."
+msgstr ""
+"Das private Update konnte nicht autorisiert werden. Prüfe die Repository-"
+"Zugangsdaten und suche erneut nach Updates."
+
+msgid "The private update download failed. Check credentials and try again."
+msgstr ""
+"Der Download des privaten Updates ist fehlgeschlagen. Prüfe die Zugangsdaten "
+"und versuche es erneut."
 
 msgid "The release checksum does not match. Installation stopped."
 msgstr ""
@@ -941,6 +857,13 @@ msgstr ""
 "Die Aktualisierung wurde nicht bestätigt. Du kannst es erneut versuchen."
 
 msgid ""
+"The update package does not match Purify WPCode Lite or its supported "
+"requirements."
+msgstr ""
+"Das Updatepaket passt nicht zu Purify WPCode Lite oder seinen unterstützten "
+"Voraussetzungen."
+
+msgid ""
 "These details contain component versions and catalog status, without "
 "credentials or site content."
 msgstr ""
@@ -949,6 +872,9 @@ msgstr ""
 
 msgid "This catalog requires a newer Library."
 msgstr "Dieser Katalog benötigt eine neuere Library."
+
+msgid "This feature is unavailable in WPCode Lite."
+msgstr "Diese Funktion ist in WPCode Lite nicht verfügbar."
 
 msgid ""
 "This plugin directory already exists. Use the installed plugin; it will not "
@@ -969,6 +895,9 @@ msgstr "Do"
 msgid "Thursday"
 msgstr "Donnerstag"
 
+msgid "Tools"
+msgstr "Werkzeuge"
+
 msgid "Tue"
 msgstr "Di"
 
@@ -980,6 +909,9 @@ msgstr "Unsicherer Archivpfad."
 
 msgid "Untrusted release URL."
 msgstr "Nicht vertrauenswürdige Release-URL."
+
+msgid "Unverified WPCode versions pause cleanup safely."
+msgstr "Bei ungeprüften WPCode-Versionen pausiert die Bereinigung sicher."
 
 msgid "Update %1$s to version %2$s or newer."
 msgstr "%1$s bitte auf Version %2$s oder neuer aktualisieren."
@@ -996,6 +928,12 @@ msgstr "Auf %s aktualisieren"
 msgid "Updated"
 msgstr "Aktualisiert"
 
+msgid "Updated local artwork."
+msgstr "Lokale Grafiken aktualisiert."
+
+msgid "Updated plugin catalog and GitHub update handling."
+msgstr "Plugin-Katalog und GitHub-Updateversorgung aktualisiert."
+
 msgid "Updating…"
 msgstr "Wird aktualisiert…"
 
@@ -1004,6 +942,9 @@ msgstr "Plugins ansehen"
 
 msgid "Visibility"
 msgstr "Sichtbarkeit"
+
+msgid "WPCode Lite does not require a license."
+msgstr "WPCode Lite benötigt keine Lizenz."
 
 msgid "Wed"
 msgstr "Mi"
@@ -1020,3 +961,141 @@ msgid ""
 msgstr ""
 "Du nutzt bereits ein Plugin von mir. Ausgewählte Ergänzungen findest du im "
 "deckerweb-Tab."
+
+msgid "Archive verification"
+msgstr "Archivprüfung"
+
+msgid "Catalog approval"
+msgstr "Katalogfreigabe"
+
+msgid "Catalog diagnostics require a public catalog provider."
+msgstr "Die Katalogdiagnose benötigt einen öffentlichen Kataloganbieter."
+
+msgid "Checksum verification"
+msgstr "Prüfsummenprüfung"
+
+msgid "HTTP status: %d."
+msgstr "HTTP-Status: %d."
+
+msgid "Invalid package cleanup provider."
+msgstr "Ungültiger Anbieter für die Paketbereinigung."
+
+msgid "Invalid private download limits."
+msgstr "Ungültige Grenzen für private Downloads."
+
+msgid "Package download"
+msgstr "Paketdownload"
+
+msgid "Safe package cleanup is unavailable for this update provider."
+msgstr "Für diesen Updateanbieter ist keine sichere Paketbereinigung verfügbar."
+
+msgid "The archive or plugin identity could not be verified. Installation was stopped."
+msgstr "Das Archiv oder die Pluginidentität konnte nicht geprüft werden. Die Installation wurde gestoppt."
+
+msgid "The package does not match the approved checksum. Installation was stopped."
+msgstr "Das Paket entspricht nicht der freigegebenen Prüfsumme. Die Installation wurde gestoppt."
+
+msgid "The secure connection to the update server failed."
+msgstr "Die sichere Verbindung zum Updateserver ist fehlgeschlagen."
+
+msgid "The update package identity, version or requirements could not be verified."
+msgstr "Identität, Version oder Anforderungen des Updatepakets konnten nicht bestätigt werden."
+
+msgid "The update provider did not return valid update data."
+msgstr "Der Updateanbieter hat keine gültigen Updatedaten geliefert."
+
+msgid "The update request timed out. Try again later."
+msgstr "Die Updateanfrage hat zu lange gedauert. Versuche es später erneut."
+
+msgid "The update server address could not be resolved."
+msgstr "Die Adresse des Updateservers konnte nicht aufgelöst werden."
+
+msgid "The update server could not be reached. Try again later."
+msgstr "Der Updateserver ist nicht erreichbar. Versuche es später erneut."
+
+msgid "The update server returned an unsuccessful HTTP response."
+msgstr "Der Updateserver hat eine HTTP-Fehlerantwort zurückgegeben."
+
+msgid "Update stopped at %1$s: %2$s"
+msgstr "Update gestoppt bei %1$s: %2$s"
+
+msgid "%1$s of %2$s plugins"
+msgstr "%1$s von %2$s Plugins"
+
+msgid "Catalog retrieval does not limit updates of installed plugins. Those use their normal WordPress update provider."
+msgstr "Der Katalogabruf begrenzt keine Updates installierter Plugins. Diese verwenden ihren normalen WordPress-Updater."
+
+msgid "Catalog verification"
+msgstr "Katalogprüfung"
+
+msgid "Connection failed. Please try again later."
+msgstr "Die Verbindung ist fehlgeschlagen. Bitte später erneut versuchen."
+
+msgid "Inactive"
+msgstr "Inaktiv"
+
+msgid "Installed plugin identity does not match the approved release."
+msgstr "Die Identität des installierten Plugins stimmt nicht mit dem freigegebenen Release überein."
+
+msgid "Installed plugins use their normal update provider. Reload the update information and try again."
+msgstr "Installierte Plugins verwenden ihren normalen Updater. Aktualisiere die Updateinformationen und versuche es erneut."
+
+msgid "Invalid status filter."
+msgstr "Ungültiger Statusfilter."
+
+msgid "No update reported."
+msgstr "Kein Update gemeldet."
+
+msgid "Not installed"
+msgstr "Nicht installiert"
+
+msgid "Plugin status"
+msgstr "Plugin-Status"
+
+msgid "Stage: %1$s. %2$s"
+msgstr "Fehlerstufe: %1$s. %2$s"
+
+msgid "The catalog response is invalid, incompatible or too large."
+msgstr "Die Katalogantwort ist ungültig, inkompatibel oder zu groß."
+
+msgid "The connection timed out. Please try again later."
+msgstr "Die Zeit für die Verbindung wurde überschritten. Bitte später erneut versuchen."
+
+msgid "The installed plugin identity could not be verified. Use the Plugins screen to review it."
+msgstr "Die Identität des installierten Plugins konnte nicht geprüft werden. Prüfe es auf der Plugins-Seite."
+
+msgid "The package checksum does not match the approved release. Installation was stopped."
+msgstr "Die Paketprüfsumme stimmt nicht mit der freigegebenen Version überein. Die Installation wurde gestoppt."
+
+msgid "The package did not pass the archive or plugin identity checks. Installation was stopped."
+msgstr "Das Paket hat die Archiv- oder Plugin-Identitätsprüfung nicht bestanden. Die Installation wurde gestoppt."
+
+msgid "The requirements below describe the catalog version for first installation, not an installed-plugin update."
+msgstr "Die folgenden Voraussetzungen beschreiben die Katalogversion für die Erstinstallation, nicht ein Bestandsupdate."
+
+msgid "The secure connection could not be verified."
+msgstr "Die sichere Verbindung konnte nicht bestätigt werden."
+
+msgid "The server address could not be resolved."
+msgstr "Die Serveradresse konnte nicht aufgelöst werden."
+
+msgid "The server returned HTTP %d. Please try again later."
+msgstr "Der Server hat HTTP %d zurückgegeben. Bitte später erneut versuchen."
+
+msgid "Update available: %s"
+msgstr "Update verfügbar: %s"
+
+msgid "Update information changed. Reload the page and try again."
+msgstr "Die Updateinformationen haben sich geändert. Lade die Seite neu und versuche es erneut."
+
+msgid "Use the Plugins screen to manage this installed plugin."
+msgstr "Verwalte dieses installierte Plugin auf der Plugins-Seite."
+
+msgid "Verified first installations · Independent plugin updates"
+msgstr "Geprüfte Erstinstallationen · Unabhängige Pluginupdates"
+
+msgid "Updated deckerweb Library to 1.3.0 and Updater to 2.4.0: normal updates are independent of the catalog, with bounded downloads and stricter package checks."
+msgstr "deckerweb Library auf 1.3.0 und Updater auf 2.4.0 aktualisiert: normale Updates unabhängig vom Katalog, begrenzte Downloads und strengere Paketprüfung."
+
+msgid "2026-11-09"
+msgstr "9. November 2026"

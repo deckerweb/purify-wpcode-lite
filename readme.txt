@@ -3,7 +3,7 @@ Contributors: deckerweb
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,10 @@ Purify stores no snippet content or cleanup settings. Deactivation preserves dat
 The updater checks this public GitHub repository through WordPress update checks. The Library ships a local catalog; optional online refresh is off initially and, when enabled, contacts the approved GitHub catalog. User-triggered installation downloads approved packages. No Purify telemetry is added.
 
 == Changelog ==
+
+= 1.1.2 · 2026-11-09 =
+
+* Fixed: Updated deckerweb Library to 1.3.0 and Updater to 2.4.0: normal updates are independent of the catalog, with bounded downloads and stricter package checks.
 
 = 1.1.1 · 2026-10-22 =
 

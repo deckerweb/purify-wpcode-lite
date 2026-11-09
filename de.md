@@ -10,7 +10,7 @@ layout: default
 
 Purify entfernt bekannte Werbung aus WPCode Lite und erhält den Zugriff auf nützliche Free-Funktionen.
 
-Version **1.1.1** · WordPress **6.7+** · PHP **8.1+** · GPL v2 or later
+Version **1.1.2** · WordPress **6.7+** · PHP **8.1+** · GPL v2 or later
 
 [Installation](#installation) · [Voraussetzungen und Grenzen](#voraussetzungen-und-grenzen) · [FAQ](#häufige-fragen) · [Änderungsverlauf](#änderungsverlauf)
 
@@ -33,7 +33,7 @@ Benannte PHP-Hooks und Seitenadapter unterbinden Werbung bevorzugt vor der Ausga
 
 ## Voraussetzungen und Grenzen
 
-WordPress 6.7 und PHP 8.1 oder neuer sind erforderlich. Enthalten sind Library 1.1.0 und Updater 2.2.1. Die Bereinigung gilt weiterhin für WPCode Lite 2.3.9 und 2.4.0; bei ungeprüften Versionen pausiert sie. Versteckte Premium-Menüs können weiterhin direkt erreichbar sein. ClassicPress und vollständige produktive Updatezustellung sind nicht bestätigt.
+WordPress 6.7 und PHP 8.1 oder neuer sind erforderlich. Enthalten sind Library 1.3.0 und Updater 2.4.0. Die Bereinigung gilt weiterhin für WPCode Lite 2.3.9 und 2.4.0; bei ungeprüften Versionen pausiert sie. Versteckte Premium-Menüs können weiterhin direkt erreichbar sein. ClassicPress und vollständige produktive Updatezustellung sind nicht bestätigt.
 
 ## Häufige Fragen
 
@@ -68,6 +68,10 @@ Der Updater prüft dieses öffentliche GitHub-Repository über WordPress-Updatep
 [Vollständige Fragen nach Themen](docs/FAQ.de.html)
 
 ## Änderungsverlauf
+
+### 1.1.2 · 2026-11-09
+
+- **Behoben:** deckerweb Library auf 1.3.0 und Updater auf 2.4.0 aktualisiert: normale Updates unabhängig vom Katalog, begrenzte Downloads und strengere Paketprüfung.
 
 ### 1.1.1 · 2026-10-22
 
